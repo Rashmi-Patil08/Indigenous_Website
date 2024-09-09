@@ -1,23 +1,28 @@
 <template>
-  <div id="app">
-    <NavigationBar />
-    <!-- Only use one of the following two lines -->
-    <!-- Option 1: Use HomePage component directly -->
-    <!-- <HomePage /> -->
-
-    <!-- Option 2: Use router-view to display routed components -->
-    <router-view />
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/login">Login</router-link> |
+      <router-link to="/register">Register</router-link> |
+      <router-link to="/support-service">Support Service</router-link> |
+      <router-link to="/rating">Rating</router-link>
+      <!-- <a href="#">Testing</a> -->
+      
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import NavigationBar from './components/NavigationBar.vue'
-
-export default {
-  name: 'App',
-  components: {
-    NavigationBar,
-    
-  }
+<style scoped>
+nav {
+  margin-bottom: 20px;
+  color: red;
 }
-</script>
+
+nav a {
+  margin-right: 10px;
+  color: rgb(7, 7, 7);
+
+}
+
+</style>

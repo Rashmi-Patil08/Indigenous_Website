@@ -1,22 +1,42 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../components/HomePage.vue'
-import AboutUs from '../components/AboutUs.vue'
-import ContactUs from '../components/ContactUs.vue'
-import Resources from '../components/Resources.vue';
-import SupportService from '../components/SupportService.vue'
-
+// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router';
+import HomePage from '../views/HomePage.vue';
+import LoginPage from '../views/LoginPage.vue';
+import RegistrationPage from '../views/RegistrationPage.vue';
+import SupportServicePage from '../views/SupportServicePage.vue';
+import RatingPage from '../views/RatingPage.vue';
 
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/about', component: AboutUs },
-  { path: '/contact', component: ContactUs },
-  { path: '/support-service', component: SupportService },  // Updated path
-  { path: '/resources', component: Resources },
-]
+  {
+    path: '/',
+    name: 'Home',
+    component: HomePage
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegistrationPage
+  },
+  {
+    path: '/support-service',
+    name: 'SupportService',
+    component: SupportServicePage
+  },
+  {
+    path: '/rating',
+    name: 'Rating',
+    component: RatingPage
+  }
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
-})
+  routes
+});
 
-export default router
+export default router;
