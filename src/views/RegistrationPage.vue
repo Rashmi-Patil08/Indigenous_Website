@@ -85,6 +85,9 @@
   </div>
 </template>
 
+
+<!-- JavaScript for RegistrationPage -->
+
 <script setup>
 import { ref, computed } from 'vue';
 
@@ -96,9 +99,9 @@ const gender = ref('');
 const citizen = ref('');
 const password = ref('');
 const confirmPassword = ref('');
-const showErrors = ref(false); // This controls whether to show errors or not
+const showErrors = ref(false);
 
-// Password validation regex to check the criteria: minimum 8 characters, at least one uppercase, one number, and one special character.
+// Password validation regex to check the criteria
 const passwordCriteria = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
 
 // Validations
@@ -108,23 +111,48 @@ const emailValid = computed(() => /^[a-zA-Z0-9._-]+@(gmail\.com|company\.com)$/.
 const usernameValid = computed(() => username.value.trim() !== '');
 const genderValid = computed(() => gender.value !== '');
 const citizenValid = computed(() => citizen.value !== '');
-const passwordValid = computed(() => passwordCriteria.test(password.value)); // Ensure password follows the criteria
+const passwordValid = computed(() => passwordCriteria.test(password.value));
 const confirmPasswordValid = computed(() => password.value === confirmPassword.value);
 
-const handleSubmit = () => {
-  showErrors.value = true; // Show errors when user submits
-  if (
-    firstNameValid.value &&
-    lastNameValid.value &&
-    emailValid.value &&
-    usernameValid.value &&
-    genderValid.value &&
-    citizenValid.value &&
-    passwordValid.value &&
-    confirmPasswordValid.value
-  ) {
-    alert('Form submitted successfully!');
-    clearForm(); // Reset the form after submission
+// Function to hash password using Web Crypto API
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Store users in local storage in JSON format
+const saveUserToLocalStorage = (user) => {
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  users.push(user);
+  localStorage.setItem('users', JSON.stringify(users));
+};
+
+const handleSubmit = async () => {
+  showErrors.value = true;
+
+  if (firstNameValid.value && lastNameValid.value && emailValid.value && usernameValid.value && genderValid.value && citizenValid.value && passwordValid.value && confirmPasswordValid.value) {
+    
+    // Hash the password using Web Crypto API (SHA-256)
+    const hashedPassword = await hashPassword(password.value);
+    
+    // Ensure password is hashed before storing
+    const newUser = {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      username: username.value,
+      gender: gender.value,
+      citizen: citizen.value,
+      password: hashedPassword,  // Save the hashed password
+    };
+
+    // Save user to local storage
+    saveUserToLocalStorage(newUser);
+
+    alert('Registration successful!');
+    clearForm();
   }
 };
 
@@ -137,10 +165,15 @@ const clearForm = () => {
   citizen.value = '';
   password.value = '';
   confirmPassword.value = '';
-  showErrors.value = false; // Reset error display
+  showErrors.value = false;
 };
 </script>
 
+
+
+
+
+<!-- CSS for RegistrationPage -->
 <style scoped>
 .registration-form {
   max-width: 600px;

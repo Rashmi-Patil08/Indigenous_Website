@@ -1,4 +1,4 @@
-@import './base.css';
+ @import './base.css';
 
 #app {
   max-width: 1280px;
@@ -21,17 +21,95 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #app {
+    max-width: 1140px;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  body {
+    font-size: 1rem;
   }
-  
 }
 
+/* Medium devices (tablets, 768px to 1200px) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  #app {
+    max-width: 960px;
+    padding: 1.5rem;
+  }
+
+  body {
+    font-size: 0.9rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  /* Adjust layout for grid forms on medium screens */
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Small devices (phones, 576px to 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #app {
+    max-width: 540px;
+    padding: 1rem;
+  }
+
+  body {
+    font-size: 0.85rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  #app {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  body {
+    font-size: 0.8rem;
+  }
+
+  /* Stack form elements vertically on small screens */
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group label,
+  .form-actions {
+    display: block;
+    text-align: center;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Large desktops (1400px and up) */
+@media (min-width: 1400px) {
+  #app {
+    max-width: 1280px;
+  }
+}
