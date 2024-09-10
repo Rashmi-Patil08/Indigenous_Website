@@ -1,0 +1,273 @@
+[
+  {
+    "id": 1,
+    "name": "Malia Daku",
+    "community": "Yolngu",
+    "language": "Djambarrpuyŋu",
+    "healthFocus": "Chronic Disease Management",
+    "location": "Northern Territory",
+    "description": "Malia is from the Yolngu community and works as a community health advocate focusing on chronic diseases such as diabetes and heart disease."
+  },
+  {
+    "id": 2,
+    "name": "Luka Jaburrara",
+    "community": "Anangu Pitjantjatjara",
+    "language": "Pitjantjatjara",
+    "healthFocus": "Mental Health Support",
+    "location": "South Australia",
+    "description": "Luka is a mental health counselor helping his Anangu Pitjantjatjara community address issues of mental health and emotional well-being."
+  },
+  {
+    "id": 3,
+    "name": "Waru Ngarluma",
+    "community": "Ngarluma",
+    "language": "Ngarluma",
+    "healthFocus": "Diabetes Prevention",
+    "location": "Western Australia",
+    "description": "Waru is a diabetes educator who works to prevent the rise of diabetes within the Ngarluma people through lifestyle awareness programs."
+  },
+  {
+    "id": 4,
+    "name": "Yindi Banjo",
+    "community": "Kaurna",
+    "language": "Kaurna",
+    "healthFocus": "Elder Care",
+    "location": "Adelaide, South Australia",
+    "description": "Yindi supports the elders of the Kaurna community by providing elder care services, ensuring access to health care and social support."
+  },
+  {
+    "id": 5,
+    "name": "Karri Worrora",
+    "community": "Worrorra",
+    "language": "Worrorra",
+    "healthFocus": "Child Health and Nutrition",
+    "location": "Kimberley, Western Australia",
+    "description": "Karri works with children in the Worrorra community, focusing on improving child nutrition and early health intervention programs."
+  },
+  {
+    "id": 6,
+    "name": "Nara Gurindji",
+    "community": "Gurindji",
+    "language": "Gurindji",
+    "healthFocus": "Substance Abuse Support",
+    "location": "Victoria River, Northern Territory",
+    "description": "Nara leads initiatives to combat substance abuse among the Gurindji people, focusing on prevention, counseling, and rehabilitation."
+  },
+  {
+    "id": 7,
+    "name": "Kirrily Bundjalung",
+    "community": "Bundjalung",
+    "language": "Bundjalung",
+    "healthFocus": "Immunization",
+    "location": "New South Wales",
+    "description": "Kirrily is a health advocate for her Bundjalung community, promoting immunization campaigns to protect against preventable diseases."
+  },
+  {
+    "id": 8,
+    "name": "Jirra Murri",
+    "community": "Murri",
+    "language": "Muruwari",
+    "healthFocus": "Respiratory Health",
+    "location": "Queensland",
+    "description": "Jirra leads a respiratory health program for the Murri people, offering resources and education to reduce rates of asthma and respiratory diseases."
+  },
+  {
+    "id": 9,
+    "name": "Waru Yawuru",
+    "community": "Yawuru",
+    "language": "Yawuru",
+    "healthFocus": "Alcohol Harm Reduction",
+    "location": "Broome, Western Australia",
+    "description": "Waru works with the Yawuru people on harm reduction programs related to alcohol, helping individuals seek support and rehabilitation."
+  },
+  {
+    "id": 10,
+    "name": "Miriwoong Wardandi",
+    "community": "Miriwoong",
+    "language": "Miriwoong",
+    "healthFocus": "Chronic Kidney Disease",
+    "location": "Kununurra, Western Australia",
+    "description": "Miriwoong runs education programs to raise awareness of chronic kidney disease among his community in the Kununurra region."
+  },
+  {
+    "id": 11,
+    "name": "Buru Arrernte",
+    "community": "Arrernte",
+    "language": "Arrernte",
+    "healthFocus": "Mental Health Advocacy",
+    "location": "Alice Springs, Northern Territory",
+    "description": "Buru is a mental health advocate in Alice Springs, working to provide culturally sensitive counseling services for the Arrernte people."
+  },
+  {
+    "id": 12,
+    "name": "Nyoka Bunuba",
+    "community": "Bunuba",
+    "language": "Bunuba",
+    "healthFocus": "Healthy Lifestyle Programs",
+    "location": "Kimberley, Western Australia",
+    "description": "Nyoka promotes healthy lifestyle programs in the Bunuba community, with a focus on nutrition, exercise, and wellness."
+  },
+  {
+    "id": 13,
+    "name": "Kaya Jandai",
+    "community": "Dharug",
+    "language": "Dharug",
+    "healthFocus": "Antenatal Care",
+    "location": "Sydney, New South Wales",
+    "description": "Kaya provides antenatal care support for expectant mothers in the Dharug community, ensuring access to health services and resources."
+  },
+  {
+    "id": 14,
+    "name": "Mabo Meriam",
+    "community": "Torres Strait Islander",
+    "language": "Meriam Mir",
+    "healthFocus": "Eye Health Services",
+    "location": "Torres Strait Islands, Queensland",
+    "description": "Mabo focuses on improving access to eye health services for the Torres Strait Islander community, helping to prevent and treat vision issues."
+  },
+  {
+    "id": 15,
+    "name": "Gari Tiwi",
+    "community": "Tiwi",
+    "language": "Tiwi",
+    "healthFocus": "Heart Disease Prevention",
+    "location": "Melville Island, Northern Territory",
+    "description": "Gari promotes heart disease prevention programs, educating the Tiwi community on heart health and cardiovascular disease risk factors."
+  },
+  {
+    "id": 16,
+    "name": "Koen Noongar",
+    "community": "Noongar",
+    "language": "Noongar",
+    "healthFocus": "Skin Cancer Screening",
+    "location": "Perth, Western Australia",
+    "description": "Koen advocates for skin cancer screenings within the Noongar community, ensuring early detection and prevention."
+  },
+  {
+    "id": 17,
+    "name": "Tahlia Wiradjuri",
+    "community": "Wiradjuri",
+    "language": "Wiradjuri",
+    "healthFocus": "Community Health Education",
+    "location": "New South Wales",
+    "description": "Tahlia organizes community health education sessions for the Wiradjuri people, focusing on preventive care and general well-being."
+  },
+  {
+    "id": 18,
+    "name": "Kuta Kamilaroi",
+    "community": "Kamilaroi",
+    "language": "Kamilaroi",
+    "healthFocus": "Diabetes Management",
+    "location": "Northern New South Wales",
+    "description": "Kuta provides diabetes management support in the Kamilaroi community, ensuring access to medication, monitoring, and lifestyle advice."
+  },
+  {
+    "id": 19,
+    "name": "Gubbi Muruwari",
+    "community": "Muruwari",
+    "language": "Muruwari",
+    "healthFocus": "Mental Health Services",
+    "location": "Queensland",
+    "description": "Gubbi leads mental health services for the Muruwari people, offering culturally appropriate therapy and counseling."
+  },
+  {
+    "id": 20,
+    "name": "Jarra Djabugay",
+    "community": "Djabugay",
+    "language": "Djabugay",
+    "healthFocus": "Obesity Prevention Programs",
+    "location": "Cairns, Queensland",
+    "description": "Jarra advocates for obesity prevention programs in the Djabugay community, focusing on diet and physical activity."
+  },
+  {
+    "id": 21,
+    "name": "Lira Yolŋu",
+    "community": "Yolngu",
+    "language": "Djambarrpuyŋu",
+    "healthFocus": "Dental Health Services",
+    "location": "Arnhem Land, Northern Territory",
+    "description": "Lira works to improve dental health services for the Yolngu people, focusing on preventive care and dental hygiene education."
+  },
+  {
+    "id": 22,
+    "name": "Indra Anangu",
+    "community": "Anangu Pitjantjatjara",
+    "language": "Pitjantjatjara",
+    "healthFocus": "Vision Care",
+    "location": "South Australia",
+    "description": "Indra is a vision care specialist, working to improve eye health for the Anangu Pitjantjatjara people."
+  },
+  {
+    "id": 23,
+    "name": "Jaga Warlpiri",
+    "community": "Warlpiri",
+    "language": "Warlpiri",
+    "healthFocus": "Palliative Care",
+    "location": "Central Australia, Northern Territory",
+    "description": "Jaga provides palliative care services for terminally ill members of the Warlpiri community, ensuring comfort and dignity in their final days."
+  },
+  {
+    "id": 24,
+    "name": "Kalti Gubbi Gubbi",
+    "community": "Gubbi Gubbi",
+    "language": "Gubbi Gubbi",
+    "healthFocus": "Alcohol and Drug Rehabilitation",
+    "location": "Queensland",
+    "description": "Kalti runs alcohol and drug rehabilitation programs for the Gubbi Gubbi people, helping individuals recover and reintegrate into society."
+  },
+  {
+    "id": 25,
+    "name": "Tully Darumbal",
+    "community": "Darumbal",
+    "language": "Darumbal",
+    "healthFocus": "Child Immunization",
+    "location": "Central Queensland",
+    "description": "Tully advocates for child immunization programs in the Darumbal community, ensuring protection from preventable diseases."
+  },
+  {
+    "id": 26,
+    "name": "Wira Gooreng Gooreng",
+    "community": "Gooreng Gooreng",
+    "language": "Gooreng Gooreng",
+    "healthFocus": "Adolescent Mental Health",
+    "location": "Gladstone, Queensland",
+    "description": "Wira provides mental health services for adolescents in the Gooreng Gooreng community, addressing issues such as depression and anxiety."
+  },
+  {
+    "id": 27,
+    "name": "Jila Awabakal",
+    "community": "Awabakal",
+    "language": "Awabakal",
+    "healthFocus": "Cardiovascular Health",
+    "location": "New South Wales",
+    "description": "Jila educates her Awabakal community on cardiovascular health, focusing on heart disease prevention and healthy living."
+  },
+  {
+    "id": 28,
+    "name": "Binda Walmajarri",
+    "community": "Walmajarri",
+    "language": "Walmajarri",
+    "healthFocus": "Women's Health Services",
+    "location": "Western Australia",
+    "description": "Binda provides women's health services for the Walmajarri people, focusing on reproductive health and cancer screening."
+  },
+  {
+    "id": 29,
+    "name": "Tarni Wongi",
+    "community": "Wongi",
+    "language": "Wongi",
+    "healthFocus": "Nutrition and Diet Support",
+    "location": "Western Australia",
+    "description": "Tarni leads nutrition programs for the Wongi people, advocating for healthy diets and lifestyle choices to prevent obesity and related diseases."
+  },
+  {
+    "id": 30,
+    "name": "Koora Nyangumarta",
+    "community": "Nyangumarta",
+    "language": "Nyangumarta",
+    "healthFocus": "Cultural Health Advocacy",
+    "location": "Pilbara, Western Australia",
+    "description": "Koora advocates for cultural health practices within the Nyangumarta community, promoting traditional healing alongside modern healthcare."
+  }
+  
+]

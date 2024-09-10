@@ -5,6 +5,8 @@ import LoginPage from '../views/LoginPage.vue';
 import RegistrationPage from '../views/RegistrationPage.vue';
 import SupportServicePage from '../views/SupportServicePage.vue';
 import RatingPage from '../views/RatingPage.vue';
+import DataDisplay from '../views/DataDisplay.vue';
+
 
 const routes = [
   {
@@ -31,6 +33,10 @@ const routes = [
     path: '/rating',
     name: 'Rating',
     component: RatingPage
+  },
+  { path: '/DataDisplay', 
+    name: 'DataDisplay', 
+    component: DataDisplay 
   }
 ];
 

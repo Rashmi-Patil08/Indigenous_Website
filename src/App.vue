@@ -5,7 +5,8 @@
       <router-link to="/login">Login</router-link> |
       <router-link to="/register">Register</router-link> |
       <router-link to="/support-service">Support Service</router-link> |
-      <router-link to="/rating">Rating</router-link>
+      <router-link to="/rating">Rating</router-link>|
+      <router-link to="/DataDisplay">Data Display</router-link>
       <!-- <a href="#">Testing</a> -->
       
     </nav>
