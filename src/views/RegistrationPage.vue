@@ -149,7 +149,10 @@ const handleSubmit = async () => {
       gender: gender.value,
       citizen: citizen.value,
       password: hashedPassword,  // Save the hashed password
+      role: 'admin' // Default role as 'user/admin'
     };
+
+    console.log(newUser);
 
     // Save user to local storage
     saveUserToLocalStorage(newUser);

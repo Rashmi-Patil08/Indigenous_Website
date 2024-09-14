@@ -68,14 +68,14 @@ const handleSubmit = async () => {
     const user = findUser(emailOrUsername.value);
 
     if (user) {
-      const hashedPassword = await hashPassword(password.value); // Hash the input password
+      const hashedPassword = await hashPassword(password.value);
 
       if (user.password === hashedPassword) {
         // Store session data (username and role) in localStorage after successful login
-        localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.role }));
+        localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.role, email: user.email, gender: user.gender, citizen: user.citizen}));  // Include role
         
         // Redirect to user page after successful login
-        router.push('/userpage');  // Correctly use router in Composition API
+        router.push('/userpage');  // Adjust route as per your requirement
       } else {
         alert('Invalid email/username or password');
       }
@@ -84,6 +84,7 @@ const handleSubmit = async () => {
     }
   }
 };
+
 
 // Clear form inputs
 const clearForm = () => {
