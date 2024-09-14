@@ -7,6 +7,7 @@
       <router-link to="/support-service">Support Service</router-link> |
       <router-link to="/rating">Rating</router-link>|
       <router-link to="/DataDisplay">Data Display</router-link>
+
       <!-- <a href="#">Testing</a> -->
       
     </nav>

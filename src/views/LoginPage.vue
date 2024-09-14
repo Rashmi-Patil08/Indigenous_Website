@@ -11,7 +11,7 @@
     <form @submit.prevent="handleSubmit">
       <!-- Email or Username -->
       <div class="form-group">
-        <label for="emailOrUsername">Email or Username:</label>
+        <label for="emailOrUsername">Email:</label>
         <input type="text" id="emailOrUsername" v-model="emailOrUsername" :class="{ 'error': showErrors && !emailOrUsernameValid }" />
         <span v-if="showErrors && !emailOrUsernameValid" class="error-message">Please enter a valid email or username</span>
       </div>
@@ -32,9 +32,11 @@
   </div>
 </template>
 
-<!-- LoginPage JavaScript Code -->
 <script setup>
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';  // Import the useRouter function
+
+const router = useRouter();  // Initialize the router
 
 const emailOrUsername = ref('');
 const password = ref('');
@@ -69,7 +71,11 @@ const handleSubmit = async () => {
       const hashedPassword = await hashPassword(password.value); // Hash the input password
 
       if (user.password === hashedPassword) {
-        alert(`Logged in as ${emailOrUsername.value}`);
+        // Store session data (username and role) in localStorage after successful login
+        localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.role }));
+        
+        // Redirect to user page after successful login
+        router.push('/userpage');  // Correctly use router in Composition API
       } else {
         alert('Invalid email/username or password');
       }
@@ -79,6 +85,7 @@ const handleSubmit = async () => {
   }
 };
 
+// Clear form inputs
 const clearForm = () => {
   emailOrUsername.value = '';
   password.value = '';

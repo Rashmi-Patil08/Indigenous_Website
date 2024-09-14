@@ -90,6 +90,9 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router'; // Import the useRouter function
+
+const router = useRouter(); // Initialize the router
 
 const firstName = ref('');
 const lastName = ref('');
@@ -153,6 +156,9 @@ const handleSubmit = async () => {
 
     alert('Registration successful!');
     clearForm();
+
+    // Redirect to login page after successful registration
+    router.push('/login');
   }
 };
 
@@ -167,7 +173,9 @@ const clearForm = () => {
   confirmPassword.value = '';
   showErrors.value = false;
 };
+
 </script>
+
 
 
 
