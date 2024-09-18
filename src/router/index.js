@@ -8,6 +8,7 @@ import DataDisplay from '../views/DataDisplay.vue';
 import UserPage from '../views/UserPage.vue';
 import AdminPage from '../views/AdminPage.vue';
 import ErrorPage from '../views/ErrorPage.vue';
+// import Logout from '../views/Logout.vue'; 
 
 const routes = [
   {
@@ -59,7 +60,13 @@ const routes = [
     path: '/errorpage',
     name: 'ErrorPage',
     component: ErrorPage
-  }
+  },
+
+  // {
+  //   path: '/logout',
+  //   name: 'Logout',
+  //   component: Logout
+  // }
 ];
 
 const router = createRouter({
