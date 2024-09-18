@@ -71,6 +71,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   
+
+  
   // Check if the route requires authentication
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!currentUser) {

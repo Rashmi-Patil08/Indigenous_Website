@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Indigenous People Health Data</h2>
+    <h1>Indigenous People Health Data</h1>
 
     <!-- Form to Add New User -->
     <form @submit.prevent="addPerson">
