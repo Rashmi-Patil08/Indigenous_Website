@@ -1,4 +1,3 @@
-// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import LoginPage from '../views/LoginPage.vue';
@@ -29,26 +28,32 @@ const routes = [
   {
     path: '/support-service',
     name: 'SupportService',
-    component: SupportServicePage
+    component: SupportServicePage,
+    meta: { requiresAuth: true },  // Only logged-in users can access this page
   },
   {
     path: '/rating',
     name: 'Rating',
-    component: RatingPage
+    component: RatingPage,
+    meta: { requiresAuth: true },  // Only logged-in users can access this page
   },
-  { path: '/datadisplay', 
-    name: 'DataDisplay', 
-    component: DataDisplay 
+  {
+    path: '/datadisplay',
+    name: 'DataDisplay',
+    component: DataDisplay,
+    meta: { requiresAuth: true },  // Only logged-in users can access this page
   },
   {
     path: '/userpage',
     name: 'UserPage',
-    component: UserPage
+    component: UserPage,
+    meta: { requiresAuth: true },  // Only logged-in users can access this page
   },
   {
     path: '/adminpage',
     name: 'AdminPage',
-    component: AdminPage
+    component: AdminPage,
+    meta: { requiresAuth: true, role: 'admin' },  // Only admins can access this page
   },
   {
     path: '/errorpage',
@@ -66,17 +71,19 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   
+  // Check if the route requires authentication
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!currentUser) {
-      next('/login');  // If not logged in, redirect to login page
+      next('/login');  // Redirect to login page if not logged in
     } else if (to.meta.role && to.meta.role !== currentUser.role) {
+      // If the route requires a specific role and user doesn't match, show an alert and deny access
       alert(`Access Denied: You need to be a ${to.meta.role} to access this page.`);
-      next(false);  // Prevent access if roles don't match
+      next('/errorpage');  // Optionally, you could redirect to a custom error page
     } else {
-      next();  // Allow access if role matches
+      next();  // Proceed to the route
     }
   } else {
-    next();  // Allow access to public routes
+    next();  // Proceed to public routes
   }
 });
 

@@ -23,22 +23,25 @@
       <button type="submit">Submit Rating</button>
     </form>
 
-    <!-- Display aggregated rating and number of ratings -->
-    <div v-if="averageRating !== null">
-      <h3>Average Rating: {{ averageRating }} Stars (from {{ ratings.length }} users)</h3>
-    </div>
+    <!-- Average Rating -->
 
     <!-- Display user reviews -->
-    <div v-if="ratings.length > 0">
-      <h3>Reviews:</h3>
-      <ul>
-        <li v-for="(rating, index) in ratings" :key="index">
-          <strong>{{ rating.username }}</strong> rated it 
-          <strong>{{ rating.stars }} Stars</strong>
-          <p>{{ rating.feedback }}</p>
-        </li>
-      </ul>
-    </div>
+    <!-- Display user reviews -->
+<div v-if="ratings.length > 0">
+  <h3>Reviews:</h3>
+  <ul>
+    <li v-for="(rating, index) in ratings" :key="index">
+      <strong>{{ rating.username }}</strong> 
+      <span class="stars">
+        <!-- Ensure rating.stars is a valid number between 0 and 5 -->
+        <span v-for="n in Math.min(5, Math.max(0, rating.stars || 0))" :key="'filled' + n" class="star">★</span>
+        <!-- <span v-for="n in (5 - Math.min(5, Math.max(0, rating.stars || 0)))" :key="'empty' + n" class="star">☆</span> -->
+      </span>
+      <p>{{ rating.feedback }}</p>
+    </li>
+  </ul>
+</div>
+
 
     <div v-else>
       <p>No reviews yet. Be the first to leave a review!</p>
@@ -131,12 +134,7 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Star rating */
-.stars {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-}
+
 
 .star {
   font-size: 30px;
@@ -153,9 +151,5 @@ ul {
   padding: 0;
 }
 
-ul li {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
+
 </style>
