@@ -21,95 +21,36 @@ a,
   }
 }
 
-/* Large devices (desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  #app {
-    max-width: 1140px;
-  }
-
+/* Styles for screens less than 576px */
+@media (max-width: 575px) {
   body {
-    font-size: 1rem;
+    font-size: 14px;
   }
+  /* Add other styles specific to very small screens */
 }
 
-/* Medium devices (tablets, 768px to 1200px) */
-@media (min-width: 768px) and (max-width: 1199.98px) {
-  #app {
-    max-width: 960px;
-    padding: 1.5rem;
-  }
-
+/* Styles for screens between 576px and 768px */
+@media (min-width: 576px) and (max-width: 767px) {
   body {
-    font-size: 0.9rem;
+    font-size: 16px;
   }
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  /* Adjust layout for grid forms on medium screens */
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
+  /* Adjust layout and font sizes as needed */
 }
 
-/* Small devices (phones, 576px to 768px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #app {
-    max-width: 540px;
-    padding: 1rem;
-  }
-
+/* Styles for screens between 992px and 1200px */
+@media (min-width: 992px) and (max-width: 1199px) {
   body {
-    font-size: 0.85rem;
+    font-size: 18px;
   }
-
-  .form-group {
-    margin-bottom: 0.75rem;
-  }
+  /* Further adjustments for medium-large screens */
 }
 
-/* Extra small devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
-  #app {
-    max-width: 100%;
-    padding: 0.5rem;
-  }
-
-  body {
-    font-size: 0.8rem;
-  }
-
-  /* Stack form elements vertically on small screens */
-  .form-group {
-    margin-bottom: 0.5rem;
-  }
-
-  .form-group label,
-  .form-actions {
-    display: block;
-    text-align: center;
-  }
-
-  .form-actions {
-    flex-direction: column;
-  }
-
-  button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-
-  a {
-    display: block;
-    margin-top: 0.5rem;
-  }
-}
-
-/* Large desktops (1400px and up) */
+/* Styles for screens larger than 1400px */
 @media (min-width: 1400px) {
-  #app {
-    max-width: 1280px;
+  body {
+    font-size: 20px;
+    max-width: 1400px; /* Center content */
+    margin: 0 auto;
+    /* Additional styling for wide screens */
   }
 }

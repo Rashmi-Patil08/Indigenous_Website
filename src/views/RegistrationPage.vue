@@ -85,14 +85,13 @@
   </div>
 </template>
 
-
-<!-- JavaScript for RegistrationPage -->
-
 <script setup>
 import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router'; // Import the useRouter function
+import { useRouter } from 'vue-router';
+import { auth } from '../firebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-const router = useRouter(); // Initialize the router
+const router = useRouter();
 
 const firstName = ref('');
 const lastName = ref('');
@@ -104,10 +103,8 @@ const password = ref('');
 const confirmPassword = ref('');
 const showErrors = ref(false);
 
-// Password validation regex to check the criteria
 const passwordCriteria = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
 
-// Validations
 const firstNameValid = computed(() => firstName.value.trim() !== '');
 const lastNameValid = computed(() => lastName.value.trim() !== '');
 const emailValid = computed(() => /^[a-zA-Z0-9._-]+@(gmail\.com|company\.com)$/.test(email.value));
@@ -117,51 +114,25 @@ const citizenValid = computed(() => citizen.value !== '');
 const passwordValid = computed(() => passwordCriteria.test(password.value));
 const confirmPasswordValid = computed(() => password.value === confirmPassword.value);
 
-// Function to hash password using Web Crypto API
-async function hashPassword(password) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(password);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-// Store users in local storage in JSON format
-const saveUserToLocalStorage = (user) => {
-  let users = JSON.parse(localStorage.getItem('users')) || [];
-  users.push(user);
-  localStorage.setItem('users', JSON.stringify(users));
-};
-
 const handleSubmit = async () => {
   showErrors.value = true;
 
   if (firstNameValid.value && lastNameValid.value && emailValid.value && usernameValid.value && genderValid.value && citizenValid.value && passwordValid.value && confirmPasswordValid.value) {
-    
-    // Hash the password using Web Crypto API (SHA-256)
-    const hashedPassword = await hashPassword(password.value);
-    
-    // Ensure password is hashed before storing
-    const newUser = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      email: email.value,
-      username: username.value,
-      gender: gender.value,
-      citizen: citizen.value,
-      password: hashedPassword,  // Save the hashed password
-      role: 'admin' // Default role as 'user/admin'
-    };
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+      const user = userCredential.user;
 
-    console.log(newUser);
+      // Additional user information can be saved to Firestore if needed
+      console.log("User registered:", { uid: user.uid, email: user.email, username: username.value });
 
-    // Save user to local storage
-    saveUserToLocalStorage(newUser);
+      alert('Registration successful!');
+      clearForm();
 
-    alert('Registration successful!');
-    clearForm();
-
-    // Redirect to login page after successful registration
-    router.push('/login');
+      // Redirect to login page after successful registration
+      router.push('/login');
+    } catch (error) {
+      alert(`Registration error: ${error.message}`);
+    }
   }
 };
 
@@ -176,16 +147,10 @@ const clearForm = () => {
   confirmPassword.value = '';
   showErrors.value = false;
 };
-
 </script>
 
-
-
-
-
-
-<!-- CSS for RegistrationPage -->
 <style scoped>
+/* CSS remains the same as in your original code */
 .registration-form {
   max-width: 600px;
   margin: 50px auto;
@@ -194,22 +159,18 @@ const clearForm = () => {
   border-radius: 8px;
   background-color: #f9f9f9;
 }
-
 h2 {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .form-group {
   margin-bottom: 15px;
 }
-
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -218,28 +179,24 @@ input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 input.error {
   border-color: red;
 }
-
 .error-message {
   color: red;
   font-size: 0.9em;
 }
-
 .horizontal-radio {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
   align-items: center;
 }
-
 .form-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
-
 button {
   padding: 10px 15px;
   background-color: #4caf50;
@@ -248,12 +205,28 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
-
 button[type="button"] {
   background-color: #f44336;
 }
-
 button:hover {
   opacity: 0.8;
+}
+@media (max-width: 768px) {
+  .horizontal-radio {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .registration-form {
+    padding: 10px;
+  }
+}
+@media (max-width: 576px) {
+  label {
+    font-size: 0.9em;
+  }
+  button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
 }
 </style>

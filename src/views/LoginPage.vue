@@ -9,14 +9,14 @@
     </p>
 
     <form @submit.prevent="handleSubmit">
-      <!-- Email or Username -->
+      <!-- Email Input -->
       <div class="form-group">
-        <label for="emailOrUsername">Email:</label>
-        <input type="text" id="emailOrUsername" v-model="emailOrUsername" :class="{ 'error': showErrors && !emailOrUsernameValid }" />
-        <span v-if="showErrors && !emailOrUsernameValid" class="error-message">Please enter a valid email or username</span>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" :class="{ 'error': showErrors && !emailValid }" />
+        <span v-if="showErrors && !emailValid" class="error-message">Please enter a valid email</span>
       </div>
 
-      <!-- Password -->
+      <!-- Password Input -->
       <div class="form-group">
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" :class="{ 'error': showErrors && !passwordValid }" />
@@ -34,68 +34,50 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router';  // Import the useRouter function
+import { useRouter } from 'vue-router';
+import { auth } from '../firebaseConfig';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-const router = useRouter();  // Initialize the router
+const router = useRouter();
 
-const emailOrUsername = ref('');
+const email = ref('');
 const password = ref('');
 const showErrors = ref(false);
 
-// Email/Username validation
-const emailRegex = /^[a-zA-Z0-9._-]+@(gmail\.com|company\.com)$/;
-const emailOrUsernameValid = computed(() => emailOrUsername.value.trim() !== '' && (emailRegex.test(emailOrUsername.value) || emailOrUsername.value.length >= 3));
+const emailValid = computed(() => email.value.trim() !== '');
 const passwordValid = computed(() => password.value.trim() !== '');
 
-// Function to hash password using Web Crypto API (same as in registration)
-async function hashPassword(password) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(password);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-// Function to fetch user from local storage
-const findUser = (emailOrUsername) => {
-  let users = JSON.parse(localStorage.getItem('users')) || [];
-  return users.find(user => user.email === emailOrUsername || user.username === emailOrUsername);
-};
-
+// Handle form submission
 const handleSubmit = async () => {
   showErrors.value = true;
 
-  if (emailOrUsernameValid.value && passwordValid.value) {
-    const user = findUser(emailOrUsername.value);
+  if (emailValid.value && passwordValid.value) {
+    try {
+      // Sign in with Firebase Auth
+      const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
+      const user = userCredential.user;
 
-    if (user) {
-      const hashedPassword = await hashPassword(password.value);
+      // Save user information locally if needed
+      localStorage.setItem('currentUser', JSON.stringify({ uid: user.uid, email: user.email }));
 
-      if (user.password === hashedPassword) {
-        // Store session data (username and role) in localStorage after successful login
-        localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.role, email: user.email, gender: user.gender, citizen: user.citizen}));  // Include role
-        
-        // Redirect to user page after successful login
-        router.push('/userpage');  // Adjust route as per your requirement
-      } else {
-        alert('Invalid email/username or password');
-      }
-    } else {
-      alert('Invalid email/username or password');
+      // Redirect to user page after successful login
+      router.push('/userpage');
+    } catch (error) {
+      alert('Error logging in: ' + error.message);
     }
   }
 };
 
-
 // Clear form inputs
 const clearForm = () => {
-  emailOrUsername.value = '';
+  email.value = '';
   password.value = '';
   showErrors.value = false;
 };
 </script>
 
-<!-- CSS code for Login Page -->
 <style scoped>
+/* CSS code remains unchanged */
 .login-form {
   max-width: 600px;
   margin: 50px auto;
@@ -125,7 +107,7 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 10px;

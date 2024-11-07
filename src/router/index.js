@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { auth } from '../firebaseConfig';
 import HomePage from '../views/HomePage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import RegistrationPage from '../views/RegistrationPage.vue';
@@ -8,7 +9,6 @@ import DataDisplay from '../views/DataDisplay.vue';
 import UserPage from '../views/UserPage.vue';
 import AdminPage from '../views/AdminPage.vue';
 import ErrorPage from '../views/ErrorPage.vue';
-// import Logout from '../views/Logout.vue'; 
 
 const routes = [
   {
@@ -30,43 +30,37 @@ const routes = [
     path: '/support-service',
     name: 'SupportService',
     component: SupportServicePage,
-    meta: { requiresAuth: true },  // Only logged-in users can access this page
+    meta: { requiresAuth: true }
   },
   {
     path: '/rating',
     name: 'Rating',
     component: RatingPage,
-    meta: { requiresAuth: true },  // Only logged-in users can access this page
+    meta: { requiresAuth: true }
   },
   {
     path: '/datadisplay',
     name: 'DataDisplay',
     component: DataDisplay,
-    meta: { requiresAuth: true },  // Only logged-in users can access this page
+    meta: { requiresAuth: true }
   },
   {
     path: '/userpage',
     name: 'UserPage',
     component: UserPage,
-    meta: { requiresAuth: true },  // Only logged-in users can access this page
+    meta: { requiresAuth: true }
   },
   {
     path: '/adminpage',
     name: 'AdminPage',
     component: AdminPage,
-    meta: { requiresAuth: true, role: 'admin' },  // Only admins can access this page
+    meta: { requiresAuth: true, role: 'admin' }
   },
   {
     path: '/errorpage',
     name: 'ErrorPage',
     component: ErrorPage
-  },
-
-  // {
-  //   path: '/logout',
-  //   name: 'Logout',
-  //   component: Logout
-  // }
+  }
 ];
 
 const router = createRouter({
@@ -74,26 +68,38 @@ const router = createRouter({
   routes,
 });
 
-// Navigation Guard for Role-Based Access
+// Navigation Guard for Firebase Authentication and Role-Based Access
 router.beforeEach((to, from, next) => {
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  
+  // Get the current Firebase authenticated user
+  const unsubscribe = auth.onAuthStateChanged(user => {
+    unsubscribe(); // Unsubscribe from onAuthStateChanged listener to prevent memory leaks
 
-  
-  // Check if the route requires authentication
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!currentUser) {
-      next('/login');  // Redirect to login page if not logged in
-    } else if (to.meta.role && to.meta.role !== currentUser.role) {
-      // If the route requires a specific role and user doesn't match, show an alert and deny access
-      alert(`Access Denied: You need to be a ${to.meta.role} to access this page.`);
-      next('/errorpage');  // Optionally, you could redirect to a custom error page
+    // If the route requires authentication
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (!user) {
+        // User is not logged in, redirect to login page
+        next('/login');
+      } else {
+        // User is logged in, check for role-based access if needed
+        user.getIdTokenResult().then(idTokenResult => {
+          const userRole = idTokenResult.claims.role || 'user';
+
+          // If route requires a specific role, check if it matches
+          if (to.meta.role && to.meta.role !== userRole) {
+            alert(`Access Denied: You need to be a ${to.meta.role} to access this page.`);
+            next('/errorpage'); // Redirect to a custom error page if role doesn't match
+          } else {
+            next(); // Role matches or no specific role required, proceed to the route
+          }
+        }).catch(() => {
+          next('/errorpage'); // Redirect to error page if there's an issue retrieving the role
+        });
+      }
     } else {
-      next();  // Proceed to the route
+      // Route doesn't require authentication, proceed as usual
+      next();
     }
-  } else {
-    next();  // Proceed to public routes
-  }
+  });
 });
 
 export default router;
