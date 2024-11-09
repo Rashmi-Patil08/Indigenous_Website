@@ -34,9 +34,6 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3"
   },
-  "overrides": {
-    "vue-template-compiler": "@vue/compiler-sfc"
-  },
   "eslintConfig": {
     "root": true,
     "env": {

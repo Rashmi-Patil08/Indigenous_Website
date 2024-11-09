@@ -47,26 +47,41 @@ const showErrors = ref(false);
 const emailValid = computed(() => email.value.trim() !== '');
 const passwordValid = computed(() => password.value.trim() !== '');
 
-// Handle form submission
+// Primary form submission handling function
 const handleSubmit = async () => {
   showErrors.value = true;
 
   if (emailValid.value && passwordValid.value) {
     try {
-      // Sign in with Firebase Auth
+      // Attempt Firebase sign-in
       const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
       const user = userCredential.user;
 
-      // Save user information locally if needed
+      // Save user info locally and redirect
       localStorage.setItem('currentUser', JSON.stringify({ uid: user.uid, email: user.email }));
-
-      // Redirect to user page after successful login
       router.push('/userpage');
     } catch (error) {
-      alert('Error logging in: ' + error.message);
-    }
+  console.error("Firebase login error:", error.message); // Logs specific Firebase error
+  alert('Invalid email or password. Please try again.');
+}
+
   }
 };
+
+
+// Basic authentication fallback logic
+// const handleBasicAuth = () => {
+//   // Replace with your existing basic authentication logic
+//   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+//   const matchedUser = storedUsers.find(user => user.email === email.value && user.password === password.value);
+
+//   if (matchedUser) {
+//     localStorage.setItem('currentUser', JSON.stringify({ email: matchedUser.email, authType: 'basic' }));
+//     router.push('/userpage');
+//   } else {
+//     alert('Invalid email or password. Please try again.');
+//   }
+// };
 
 // Clear form inputs
 const clearForm = () => {

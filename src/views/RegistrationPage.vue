@@ -85,6 +85,9 @@
   </div>
 </template>
 
+
+<!-- JavaScript for RegistrationPage -->
+
 <script setup>
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
@@ -114,24 +117,41 @@ const citizenValid = computed(() => citizen.value !== '');
 const passwordValid = computed(() => passwordCriteria.test(password.value));
 const confirmPasswordValid = computed(() => password.value === confirmPassword.value);
 
+const saveUserToLocalStorage = (user) => {
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  users.push(user);
+  localStorage.setItem('users', JSON.stringify(users));
+};
+
 const handleSubmit = async () => {
   showErrors.value = true;
 
   if (firstNameValid.value && lastNameValid.value && emailValid.value && usernameValid.value && genderValid.value && citizenValid.value && passwordValid.value && confirmPasswordValid.value) {
     try {
+      // Firebase Authentication registration
       const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
-      const user = userCredential.user;
+      const firebaseUser = userCredential.user;
 
-      // Additional user information can be saved to Firestore if needed
-      console.log("User registered:", { uid: user.uid, email: user.email, username: username.value });
+      const newUser = {
+        uid: firebaseUser.uid,  // Firebase UID
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+        username: username.value,
+        gender: gender.value,
+        citizen: citizen.value,
+        role: 'user',  // Default role
+      };
+
+      // Save additional data to localStorage or any other preferred storage
+      saveUserToLocalStorage(newUser);
 
       alert('Registration successful!');
       clearForm();
+      router.push('/login');  // Redirect to login page
 
-      // Redirect to login page after successful registration
-      router.push('/login');
     } catch (error) {
-      alert(`Registration error: ${error.message}`);
+      alert('Error during registration: ' + error.message);
     }
   }
 };
@@ -147,10 +167,12 @@ const clearForm = () => {
   confirmPassword.value = '';
   showErrors.value = false;
 };
+
 </script>
 
+
+<!-- CSS for RegistrationPage -->
 <style scoped>
-/* CSS remains the same as in your original code */
 .registration-form {
   max-width: 600px;
   margin: 50px auto;
@@ -159,18 +181,22 @@ const clearForm = () => {
   border-radius: 8px;
   background-color: #f9f9f9;
 }
+
 h2 {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .form-group {
   margin-bottom: 15px;
 }
+
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -179,24 +205,31 @@ input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 input.error {
   border-color: red;
 }
+
 .error-message {
   color: red;
   font-size: 0.9em;
 }
+
+/* Style for the horizontal radio options */
 .horizontal-radio {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
   align-items: center;
 }
+
+/* Form action buttons */
 .form-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
+
 button {
   padding: 10px 15px;
   background-color: #4caf50;
@@ -205,28 +238,39 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 button[type="button"] {
   background-color: #f44336;
 }
+
 button:hover {
   opacity: 0.8;
 }
+
+/* Responsive Styles */
+
+/* Screens smaller than 768px */
 @media (max-width: 768px) {
   .horizontal-radio {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .registration-form {
     padding: 10px;
   }
 }
+
+/* Screens smaller than 576px */
 @media (max-width: 576px) {
   label {
     font-size: 0.9em;
   }
+
   button {
     padding: 8px 15px;
     font-size: 0.9em;
   }
 }
+
 </style>

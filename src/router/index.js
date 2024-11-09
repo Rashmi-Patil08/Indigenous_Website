@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { auth } from '../firebaseConfig';
 import HomePage from '../views/HomePage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import RegistrationPage from '../views/RegistrationPage.vue';
@@ -9,58 +8,18 @@ import DataDisplay from '../views/DataDisplay.vue';
 import UserPage from '../views/UserPage.vue';
 import AdminPage from '../views/AdminPage.vue';
 import ErrorPage from '../views/ErrorPage.vue';
+import { auth } from '../firebaseConfig'; // Import Firebase authentication
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: HomePage
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: LoginPage
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: RegistrationPage
-  },
-  {
-    path: '/support-service',
-    name: 'SupportService',
-    component: SupportServicePage,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/rating',
-    name: 'Rating',
-    component: RatingPage,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/datadisplay',
-    name: 'DataDisplay',
-    component: DataDisplay,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/userpage',
-    name: 'UserPage',
-    component: UserPage,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/adminpage',
-    name: 'AdminPage',
-    component: AdminPage,
-    meta: { requiresAuth: true, role: 'admin' }
-  },
-  {
-    path: '/errorpage',
-    name: 'ErrorPage',
-    component: ErrorPage
-  }
+  { path: '/', name: 'Home', component: HomePage },
+  { path: '/login', name: 'Login', component: LoginPage },
+  { path: '/register', name: 'Register', component: RegistrationPage },
+  { path: '/support-service', name: 'SupportService', component: SupportServicePage, meta: { requiresAuth: true } },
+  { path: '/rating', name: 'Rating', component: RatingPage, meta: { requiresAuth: true } },
+  { path: '/datadisplay', name: 'DataDisplay', component: DataDisplay, meta: { requiresAuth: true } },
+  { path: '/userpage', name: 'UserPage', component: UserPage, meta: { requiresAuth: true } },
+  { path: '/adminpage', name: 'AdminPage', component: AdminPage, meta: { requiresAuth: true, role: 'admin' } },
+  { path: '/errorpage', name: 'ErrorPage', component: ErrorPage },
 ];
 
 const router = createRouter({
@@ -68,38 +27,31 @@ const router = createRouter({
   routes,
 });
 
-// Navigation Guard for Firebase Authentication and Role-Based Access
-router.beforeEach((to, from, next) => {
-  // Get the current Firebase authenticated user
-  const unsubscribe = auth.onAuthStateChanged(user => {
-    unsubscribe(); // Unsubscribe from onAuthStateChanged listener to prevent memory leaks
+// Navigation Guard for Role-Based Access
+router.beforeEach(async (to, from, next) => {
+  // Fetch currentUser from local storage and Firebase auth
+  const localStorageUser = JSON.parse(localStorage.getItem('currentUser'));
+  const firebaseUser = auth.currentUser;
 
-    // If the route requires authentication
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-      if (!user) {
-        // User is not logged in, redirect to login page
-        next('/login');
-      } else {
-        // User is logged in, check for role-based access if needed
-        user.getIdTokenResult().then(idTokenResult => {
-          const userRole = idTokenResult.claims.role || 'user';
-
-          // If route requires a specific role, check if it matches
-          if (to.meta.role && to.meta.role !== userRole) {
-            alert(`Access Denied: You need to be a ${to.meta.role} to access this page.`);
-            next('/errorpage'); // Redirect to a custom error page if role doesn't match
-          } else {
-            next(); // Role matches or no specific role required, proceed to the route
-          }
-        }).catch(() => {
-          next('/errorpage'); // Redirect to error page if there's an issue retrieving the role
-        });
-      }
+  // If route requires authentication, check for either Firebase or local authentication
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!localStorageUser && !firebaseUser) {
+      next('/login'); // Redirect to login if neither Firebase nor local auth is present
     } else {
-      // Route doesn't require authentication, proceed as usual
-      next();
+      // Determine user role from local storage if available, else default to Firebase user
+      const role = localStorageUser ? localStorageUser.role : 'user';
+
+      // Check for admin-only route and compare roles
+      if (to.meta.role && to.meta.role !== role) {
+        alert(`Access Denied: You need to be an ${to.meta.role} to access this page.`);
+        next('/errorpage'); // Redirect to custom error page
+      } else {
+        next(); // Allow access if role matches
+      }
     }
-  });
+  } else {
+    next(); // Allow access to public routes
+  }
 });
 
 export default router;
