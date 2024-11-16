@@ -90,11 +90,14 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router';
-import { auth } from '../firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useRouter } from 'vue-router'; // Import the useRouter function
 
-const router = useRouter();
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { auth, firestore } from '../firebaseConfig';
+
+
+const router = useRouter(); // Initialize the router
 
 const firstName = ref('');
 const lastName = ref('');
@@ -106,8 +109,10 @@ const password = ref('');
 const confirmPassword = ref('');
 const showErrors = ref(false);
 
+// Password validation regex to check the criteria
 const passwordCriteria = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
 
+// Validations
 const firstNameValid = computed(() => firstName.value.trim() !== '');
 const lastNameValid = computed(() => lastName.value.trim() !== '');
 const emailValid = computed(() => /^[a-zA-Z0-9._-]+@(gmail\.com|company\.com)$/.test(email.value));
@@ -117,44 +122,92 @@ const citizenValid = computed(() => citizen.value !== '');
 const passwordValid = computed(() => passwordCriteria.test(password.value));
 const confirmPasswordValid = computed(() => password.value === confirmPassword.value);
 
-const saveUserToLocalStorage = (user) => {
-  let users = JSON.parse(localStorage.getItem('users')) || [];
-  users.push(user);
-  localStorage.setItem('users', JSON.stringify(users));
-};
 
+
+// // eslint-disable-next-line no-unused-vars
+// // Function to hash password using Web Crypto API
+// async function hashPassword(password) {
+//   const encoder = new TextEncoder();
+//   const data = encoder.encode(password);
+//   const hash = await crypto.subtle.digest('SHA-256', data);
+//   return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+// }
+
+// // Store users in local storage in JSON format
+// const saveUserToLocalStorage = (user) => {
+//   let users = JSON.parse(localStorage.getItem('users')) || [];
+//   users.push(user);
+//   localStorage.setItem('users', JSON.stringify(users));
+// };
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Local storage logic and old code
+// const handleSubmit = async () => {
+//   showErrors.value = true;
+
+//   if (firstNameValid.value && lastNameValid.value && emailValid.value && usernameValid.value && genderValid.value && citizenValid.value && passwordValid.value && confirmPasswordValid.value) {
+    
+//     // Hash the password using Web Crypto API (SHA-256)
+//     const hashedPassword = await hashPassword(password.value);
+    
+//     // Ensure password is hashed before storing
+//     const newUser = {
+//       firstName: firstName.value,
+//       lastName: lastName.value,
+//       email: email.value,
+//       username: username.value,
+//       gender: gender.value,
+//       citizen: citizen.value,
+//       password: hashedPassword,  // Save the hashed password
+//       role: 'user' // Default role as 'user/admin'
+//     };
+
+//     console.log(newUser);
+
+//     // Save user to local storage
+//     saveUserToLocalStorage(newUser);
+
+//     alert('Registration successful!');
+//     clearForm();
+
+//     // Redirect to login page after successful registration
+//     router.push('/login');
+//   }
+// };
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Firebase integration in registration page
 const handleSubmit = async () => {
-  showErrors.value = true;
+  try {
+    // Register user with Firebase Authentication
+    const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+    const user = userCredential.user;
 
-  if (firstNameValid.value && lastNameValid.value && emailValid.value && usernameValid.value && genderValid.value && citizenValid.value && passwordValid.value && confirmPasswordValid.value) {
-    try {
-      // Firebase Authentication registration
-      const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
-      const firebaseUser = userCredential.user;
+    // Save additional user details in Firestore
+    await setDoc(doc(firestore, 'users', user.uid), {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      username: username.value,
+      email: email.value,
+      gender: gender.value,
+      citizen: citizen.value,
+      role: 'user' // Default role for new users
+    });
 
-      const newUser = {
-        uid: firebaseUser.uid,  // Firebase UID
-        firstName: firstName.value,
-        lastName: lastName.value,
-        email: email.value,
-        username: username.value,
-        gender: gender.value,
-        citizen: citizen.value,
-        role: 'user',  // Default role
-      };
-
-      // Save additional data to localStorage or any other preferred storage
-      saveUserToLocalStorage(newUser);
-
-      alert('Registration successful!');
-      clearForm();
-      router.push('/login');  // Redirect to login page
-
-    } catch (error) {
-      alert('Error during registration: ' + error.message);
-    }
+    alert('Registration successful!');
+    // Clear form or redirect to login
+    clearForm();
+    router.push('/login');
+  } catch (error) {
+    console.error('Error registering user:', error.message);
+    alert('Registration failed: ' + error.message);
   }
 };
+
+
 
 const clearForm = () => {
   firstName.value = '';
@@ -169,6 +222,10 @@ const clearForm = () => {
 };
 
 </script>
+
+
+
+
 
 
 <!-- CSS for RegistrationPage -->
@@ -215,15 +272,12 @@ input.error {
   font-size: 0.9em;
 }
 
-/* Style for the horizontal radio options */
 .horizontal-radio {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
   align-items: center;
 }
 
-/* Form action buttons */
 .form-actions {
   display: flex;
   justify-content: space-between;
@@ -246,31 +300,4 @@ button[type="button"] {
 button:hover {
   opacity: 0.8;
 }
-
-/* Responsive Styles */
-
-/* Screens smaller than 768px */
-@media (max-width: 768px) {
-  .horizontal-radio {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .registration-form {
-    padding: 10px;
-  }
-}
-
-/* Screens smaller than 576px */
-@media (max-width: 576px) {
-  label {
-    font-size: 0.9em;
-  }
-
-  button {
-    padding: 8px 15px;
-    font-size: 0.9em;
-  }
-}
-
 </style>
