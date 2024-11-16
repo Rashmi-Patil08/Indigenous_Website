@@ -186,7 +186,7 @@ button:hover {
   opacity: 0.8;
 }
 
-Error message styling
+/* Error message styling */
 .error {
   color: red;
   font-size: 0.9em;

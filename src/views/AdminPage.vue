@@ -19,9 +19,7 @@
     </div>
 
     <!-- Logout Button -->
-    <!-- Example in NavBar.vue or AdminPage.vue -->
-<button v-if="currentUser" @click="handleLogout">Logout</button>
-
+    <button @click="logout">Logout</button>
 
     <!-- Modal for Editing User Details -->
     <div v-if="showModal" class="modal">
@@ -50,33 +48,41 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { logoutUser } from '../utils/authUtils';
+import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../firebaseConfig';
 
-// Call the logoutUser function from authUtils.js
-const handleLogout = () => {
-  logoutUser();
-};
+const allUsers = ref([]);
+
+
 
 const router = useRouter();
-const allUsers = ref([]);
+// const allUsers = ref([]);
 const currentUser = ref({});
 const showModal = ref(false);
 const selectedUser = ref({});
-const isAdmin = computed(() => currentUser.value.role === 'user');
+const isAdmin = computed(() => currentUser.value.role === 'admin');
 
-// Fetch all users from localStorage on mounted and check if user is admin
+onMounted(async () => {
+const querySnapshot = await getDocs(collection(firestore, 'users'));
+allUsers.value = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+});
+
 // Fetch all users from localStorage on mounted and check if user is admin
 onMounted(() => {
   const user = JSON.parse(localStorage.getItem('currentUser'));
-  if (user && user.role === 'admin') {
+  if (user) {
     currentUser.value = user;
-    const usersFromLocalStorage = JSON.parse(localStorage.getItem('users')) || [];
-    allUsers.value = usersFromLocalStorage;
+    if (user.role === 'admin') {
+      // Fetch all users from localStorage
+      const usersFromLocalStorage = JSON.parse(localStorage.getItem('users')) || [];
+      allUsers.value = usersFromLocalStorage;
+    } else {
+      router.push('/errorpage'); // Redirect non-admin users to 404
+    }
   } else {
-    router.push('/errorpage');
+    router.push('/userpage'); // Redirect unauthenticated users to login
   }
 });
-
 
 // Function to edit user details
 const editUser = (user) => {
@@ -85,16 +91,40 @@ const editUser = (user) => {
 };
 
 // Function to save changes to the user
-const saveChanges = () => {
-  const index = allUsers.value.findIndex(u => u.username === selectedUser.value.username);
-  if (index !== -1) {
-    // Update the user in the list
-    allUsers.value.splice(index, 1, selectedUser.value);
-    localStorage.setItem('users', JSON.stringify(allUsers.value)); // Save updated list to localStorage
-    alert('User details updated successfully!');
-  }
+// const saveChanges = () => {
+//   const index = allUsers.value.findIndex(u => u.username === selectedUser.value.username);
+//   if (index !== -1) {
+//     // Update the user in the list
+//     allUsers.value.splice(index, 1, selectedUser.value);
+//     localStorage.setItem('users', JSON.stringify(allUsers.value)); // Save updated list to localStorage
+//     alert('User details updated successfully!');
+//   }
+//   closeModal();
+// };
+
+import { doc, updateDoc } from 'firebase/firestore';
+
+const saveChanges = async () => {
+try {
+  const userDocRef = doc(firestore, 'users', selectedUser.value.id);
+  
+  // Log the data to be updated
+  console.log("Updating Document:", selectedUser.value);
+
+  await updateDoc(userDocRef, {
+    email: selectedUser.value.email,
+    gender: selectedUser.value.gender,
+    citizen: selectedUser.value.citizen
+  });
+
+  alert('User details updated successfully!');
   closeModal();
+} catch (error) {
+  console.error('Failed to update user details:', error.message);
+  alert('Failed to update user details: ' + error.message);
+}
 };
+
 
 // Function to close the modal
 const closeModal = () => {
@@ -102,12 +132,10 @@ const closeModal = () => {
 };
 
 // Function to log out the admin
-// const logout = () => {
-//   localStorage.removeItem('currentUser');
-//   router.push('/login'); // Redirect to login after logout
-// };
-
-
+const logout = () => {
+  localStorage.removeItem('currentUser');
+  router.push('/login'); // Redirect to login after logout
+};
 </script>
 
 <style scoped>

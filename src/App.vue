@@ -7,7 +7,7 @@
       <router-link to="/support-service">Support Service</router-link>
       <router-link to="/rating">Rating</router-link>
       <router-link to="/DataDisplay">Data Display</router-link>
-      <span @click="logout" class="logout-link">Logout</span>
+      <!-- <span @click="logout" class="logout-link">Logout</span> -->
     </nav>
     <router-view></router-view>
   </div>

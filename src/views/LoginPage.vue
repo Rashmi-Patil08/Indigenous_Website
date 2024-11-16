@@ -9,14 +9,14 @@
     </p>
 
     <form @submit.prevent="handleSubmit">
-      <!-- Email Input -->
+      <!-- Email or Username -->
       <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" :class="{ 'error': showErrors && !emailValid }" />
-        <span v-if="showErrors && !emailValid" class="error-message">Please enter a valid email</span>
+        <label for="emailOrUsername">Email:</label>
+        <input type="text" id="emailOrUsername" v-model="emailOrUsername" :class="{ 'error': showErrors && !emailOrUsernameValid }" />
+        <span v-if="showErrors && !emailOrUsernameValid" class="error-message">Please enter a valid email or username</span>
       </div>
 
-      <!-- Password Input -->
+      <!-- Password -->
       <div class="form-group">
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" :class="{ 'error': showErrors && !passwordValid }" />
@@ -34,65 +34,109 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router';
-import { auth } from '../firebaseConfig';
+import { useRouter } from 'vue-router';  // Import the useRouter function
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, firestore } from '../firebaseConfig';
 
-const router = useRouter();
 
-const email = ref('');
+const router = useRouter();  // Initialize the router
+
+const emailOrUsername = ref('');
 const password = ref('');
 const showErrors = ref(false);
 
-const emailValid = computed(() => email.value.trim() !== '');
+// Email/Username validation
+const emailRegex = /^[a-zA-Z0-9._-]+@(gmail\.com|company\.com)$/;
+const emailOrUsernameValid = computed(() => emailOrUsername.value.trim() !== '' && (emailRegex.test(emailOrUsername.value) || emailOrUsername.value.length >= 3));
 const passwordValid = computed(() => password.value.trim() !== '');
 
-// Primary form submission handling function
+
+// // This code is also belongs to old logic
+// // Function to hash password using Web Crypto API (same as in registration)
+// async function hashPassword(password) {
+//   const encoder = new TextEncoder();
+//   const data = encoder.encode(password);
+//   const hash = await crypto.subtle.digest('SHA-256', data);
+//   return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+// }
+
+// // Function to fetch user from local storage
+// const findUser = (emailOrUsername) => {
+//   let users = JSON.parse(localStorage.getItem('users')) || [];
+//   return users.find(user => user.email === emailOrUsername || user.username === emailOrUsername);
+// };
+
+
+// This is old logic from registration page with local storage
+
+// const handleSubmit = async () => {
+//   showErrors.value = true;
+
+//   if (emailOrUsernameValid.value && passwordValid.value) {
+//     const user = findUser(emailOrUsername.value);
+
+//     if (user) {
+//       const hashedPassword = await hashPassword(password.value);
+
+//       if (user.password === hashedPassword) {
+//         // Store session data (username and role) in localStorage after successful login
+//         localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.role, email: user.email, gender: user.gender, citizen: user.citizen}));  // Include role
+        
+//         // Redirect to user page after successful login
+//         router.push('/userpage');  // Adjust route as per your requirement
+//       } else {
+//         alert('Invalid email/username or password');
+//       }
+//     } else {
+//       alert('Invalid email/username or password');
+//     }
+//   }
+// };
+
+
+
 const handleSubmit = async () => {
-  showErrors.value = true;
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, emailOrUsername.value, password.value);
+    const user = userCredential.user;
 
-  if (emailValid.value && passwordValid.value) {
-    try {
-      // Attempt Firebase sign-in
-      const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
-      const user = userCredential.user;
+    // Fetch additional details from Firestore
+    const userDoc = await getDoc(doc(firestore, 'users', user.uid));
 
-      // Save user info locally and redirect
-      localStorage.setItem('currentUser', JSON.stringify({ uid: user.uid, email: user.email }));
-      router.push('/userpage');
-    } catch (error) {
-  console.error("Firebase login error:", error.message); // Logs specific Firebase error
-  alert('Invalid email or password. Please try again.');
-}
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
 
+      // Store user details in localStorage
+      localStorage.setItem('currentUser', JSON.stringify({
+        uid: user.uid,
+        email: user.email,
+        ...userData
+      }));
+
+      alert('Login successful!');
+      router.push('/userpage'); // Redirect after login
+    } else {
+      alert('No user data found in Firestore.');
+    }
+  } catch (error) {
+    console.error('Login failed:', error.message);
+    alert('Login failed: ' + error.message);
   }
 };
 
 
-// Basic authentication fallback logic
-// const handleBasicAuth = () => {
-//   // Replace with your existing basic authentication logic
-//   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-//   const matchedUser = storedUsers.find(user => user.email === email.value && user.password === password.value);
-
-//   if (matchedUser) {
-//     localStorage.setItem('currentUser', JSON.stringify({ email: matchedUser.email, authType: 'basic' }));
-//     router.push('/userpage');
-//   } else {
-//     alert('Invalid email or password. Please try again.');
-//   }
-// };
 
 // Clear form inputs
 const clearForm = () => {
-  email.value = '';
+  emailOrUsername.value = '';
   password.value = '';
   showErrors.value = false;
 };
 </script>
 
+<!-- CSS code for Login Page -->
 <style scoped>
-/* CSS code remains unchanged */
 .login-form {
   max-width: 600px;
   margin: 50px auto;
@@ -122,7 +166,7 @@ label {
   font-weight: bold;
 }
 
-input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 10px;

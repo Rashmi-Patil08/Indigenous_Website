@@ -1,12 +1,19 @@
 <template>
-  <div class="container">
-    <h1>Home Page</h1>
-    <p>Welcome to my app!</p>
+  <div>
+    <h1>Welcome to the Home Page</h1>
+    <send-email />
   </div>
 </template>
 
-<script setup>
+<script>
+import SendEmail from './SendEmail.vue';
 
+
+export default {
+  components: {
+    SendEmail
+  }
+};
 </script>
 
 <style scoped>
