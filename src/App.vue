@@ -40,31 +40,27 @@ export default {
 </script>
 
 <style scoped>
+
 nav {
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
-  gap: 10px; /* Space between buttons */
-  margin-bottom: 20px;
+  background-color: transparent; /* No background color */
 }
 
-nav a, .logout-link {
-  display: inline-block;
-  padding: 8px 15px;
-  background-color: rgb(26, 157, 61);
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
+nav a {
+  margin: 0 15px; /* Horizontal spacing between links */
+  color: black; /* Text color */
+  text-decoration: none; 
+  font-weight: bold; 
+  transition: color 0.3s, background-color 0.3s; /* Smooth transition */
+  padding: 8px 12px; 
+  border-radius: 5px; 
 }
 
-nav a:hover, .logout-link:hover {
-  background-color: rgb(85, 159, 219); /* Darken the color on hover */
+nav a:hover {
+  background-color: rgb(79, 229, 79); 
+  color: white; /* White text on hover */
 }
-
-.logout-link {
-  display: inline-block;
-}
-
 
 </style>
