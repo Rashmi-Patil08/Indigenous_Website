@@ -9,6 +9,7 @@ import UserPage from '../views/UserPage.vue';
 import AdminPage from '../views/AdminPage.vue';
 import ErrorPage from '../views/ErrorPage.vue';
 import InteractiveTable from '../views/InteractiveTablePage.vue';
+import GeoMap from '../views/GeoLocationPage.vue';
 
 // import Logout from '../views/Logout.vue'; 
 
@@ -73,7 +74,14 @@ const routes = [
     path: '/interactive-table', // New route
     name: 'InteractiveTable',
     component: InteractiveTable
-  }
+  },
+
+  {
+    path: "/geo-location",
+    name: "GeoLocation",
+    component: GeoMap,
+  },
+  
 
 
 ];
