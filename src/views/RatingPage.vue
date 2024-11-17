@@ -1,52 +1,70 @@
 <template>
   <div class="rating-container">
-    <h1>Rate and Review the Service</h1>
+    <h1 id="rating-title">Rate and Review the Service</h1>
 
     <!-- Rating form -->
-    <form @submit.prevent="submitRating">
+    <form @submit.prevent="submitRating" aria-labelledby="rating-title">
       <label for="rating">Select your rating:</label>
       
       <!-- 5 Star Rating -->
-      <div class="stars">
+      <div class="stars" role="radiogroup" aria-labelledby="rating-title">
         <span 
           v-for="n in 5" 
           :key="n" 
           class="star" 
           :class="{ 'selected': newRating >= n }" 
-          @click="setRating(n)"
+          role="radio" 
+          :aria-checked="newRating === n" 
+          tabindex="0" 
+          @click="setRating(n)" 
+          @keydown.enter="setRating(n)"
         >★</span>
       </div>
 
       <!-- Display error message if rating is not selected -->
-      <p v-if="errors.rating" class="error">{{ errors.rating }}</p>
+      <p v-if="errors.rating" class="error" role="alert">{{ errors.rating }}</p>
 
       <!-- Feedback Text Area -->
+      <label for="feedback">Leave your feedback:</label>
       <textarea 
+        id="feedback"
         v-model="newFeedback" 
         placeholder="Leave your feedback here..." 
         required
         maxlength="500"
+        aria-required="true"
+        aria-describedby="feedback-limit"
       ></textarea>
       
       <!-- Display error message if feedback is invalid -->
-      <p v-if="errors.feedback" class="error">{{ errors.feedback }}</p>
+      <p v-if="errors.feedback" class="error" role="alert">{{ errors.feedback }}</p>
 
       <!-- Character limit message -->
-      <p class="char-limit">Max 500 characters</p>
+      <p id="feedback-limit" class="char-limit">Max 500 characters</p>
 
-      <button type="submit">Submit Rating</button>
+      <button type="submit" aria-label="Submit your rating and feedback">Submit Rating</button>
     </form>
 
     <!-- Display user reviews -->
     <div v-if="ratings.length > 0">
-      <h3>Reviews:</h3>
+      <h2>Reviews:</h2>
       <ul>
         <li v-for="(rating, index) in ratings" :key="index">
           <strong>{{ rating.username }}</strong> 
           <span class="stars">
-            <!-- Ensure rating.stars is a valid number between 0 and 5 -->
-            <span v-for="n in Math.min(5, Math.max(0, rating.stars || 0))" :key="'filled' + n" class="star">★</span>
-            <span v-for="n in (5 - Math.min(5, Math.max(0, rating.stars || 0)))" :key="'empty' + n" class="star">☆</span>
+            <!-- Gold stars for filled, gray stars for empty -->
+            <span 
+              v-for="n in Math.min(5, Math.max(0, rating.stars || 0))" 
+              :key="'filled' + n" 
+              class="star existing-star"
+              aria-label="filled star"
+            >★</span>
+            <span 
+              v-for="n in (5 - Math.min(5, Math.max(0, rating.stars || 0)))" 
+              :key="'empty' + n" 
+              class="star"
+              aria-label="empty star"
+            >☆</span>
           </span>
           <!-- Sanitize and display the feedback -->
           <p v-html="sanitizeHTML(rating.feedback)"></p>
@@ -59,6 +77,8 @@
     </div>
   </div>
 </template>
+
+
 
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -156,10 +176,21 @@ const calculateAverageRating = () => {
 </script>
 
 <style scoped>
+/* Container styling */
 .rating-container {
   max-width: 600px;
-  margin: 20px auto;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 form {
@@ -170,6 +201,15 @@ textarea {
   width: 100%;
   height: 100px;
   margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+textarea:focus {
+  outline: 2px solid #4caf50;
+  box-shadow: 0 0 5px #4caf50;
 }
 
 button {
@@ -178,35 +218,47 @@ button {
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  opacity: 0.8;
+  background-color: #45a049;
 }
 
-/* Error message styling */
 .error {
   color: red;
-  font-size: 0.9em;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .char-limit {
-  font-size: 0.8em;
-  color: grey;
+  font-size: 12px;
+  color: gray;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
 }
 
 .star {
-  font-size: 30px;
+  font-size: 36px;
   cursor: pointer;
   color: #ccc;
+  transition: color 0.2s ease-in-out;
 }
 
 .star.selected {
-  color: gold;
+  color: gold; /* Gold for new ratings */
 }
 
+.star.existing-star {
+  color: gray; /* Gray for existing reviews */
+}
+
+/* Styling for review list */
 ul {
   list-style-type: none;
   padding: 0;
@@ -214,7 +266,20 @@ ul {
 
 ul li {
   margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+ul li strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+ul li .stars {
+  display: inline-flex;
+  margin-bottom: 5px;
 }
 </style>

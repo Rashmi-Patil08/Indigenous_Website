@@ -9,6 +9,7 @@
       <router-link to="/datadisplay">Data Display</router-link>
       <router-link to="/interactive-table">Interactive Table</router-link>
       <router-link to="/geo-location">Geo Location</router-link>
+      <router-link to="/export-data">Export Data</router-link>
 
       <!-- Redirect to home and log out -->
       <router-link v-if="isLoggedIn" to="/" @click="logout">Logout</router-link>

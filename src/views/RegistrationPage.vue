@@ -1,33 +1,61 @@
 <template>
   <div class="registration-form">
-    <h2>Registration Form</h2>
-    
+    <h2 tabindex="0">Registration Form</h2>
+
     <form @submit.prevent="handleSubmit">
       <!-- First Name -->
       <div class="form-group">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" v-model="firstName" :class="{ 'error': showErrors && !firstNameValid }" />
+        <input 
+          type="text" 
+          id="firstName" 
+          v-model="firstName" 
+          :class="{ 'error': showErrors && !firstNameValid }" 
+          aria-label="Enter your first name" 
+          required 
+        />
         <span v-if="showErrors && !firstNameValid" class="error-message">First name is required</span>
       </div>
 
       <!-- Last Name -->
       <div class="form-group">
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" v-model="lastName" :class="{ 'error': showErrors && !lastNameValid }" />
+        <input 
+          type="text" 
+          id="lastName" 
+          v-model="lastName" 
+          :class="{ 'error': showErrors && !lastNameValid }" 
+          aria-label="Enter your last name" 
+          required 
+        />
         <span v-if="showErrors && !lastNameValid" class="error-message">Last name is required</span>
       </div>
 
       <!-- Email -->
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" :class="{ 'error': showErrors && !emailValid }" />
+        <input 
+          type="email" 
+          id="email" 
+          v-model="email" 
+          :class="{ 'error': showErrors && !emailValid }" 
+          aria-label="Enter your email address" 
+          required 
+        />
         <span v-if="showErrors && !emailValid" class="error-message">Invalid email format (must be @gmail.com or @company.com)</span>
       </div>
 
       <!-- Username -->
       <div class="form-group">
         <label for="username">Username:</label>
-        <input type="text" id="username" v-model="username" :class="{ 'error': showErrors && !usernameValid }" />
+        <input 
+          type="text" 
+          id="username" 
+          v-model="username" 
+          :class="{ 'error': showErrors && !usernameValid }" 
+          aria-label="Enter your username" 
+          required 
+        />
         <span v-if="showErrors && !usernameValid" class="error-message">Username is required</span>
       </div>
 
@@ -35,13 +63,31 @@
       <div class="form-group">
         <label>Gender:</label>
         <div class="horizontal-radio">
-          <input type="radio" id="male" value="Male" v-model="gender" />
+          <input 
+            type="radio" 
+            id="male" 
+            value="Male" 
+            v-model="gender" 
+            aria-label="Select Male as your gender" 
+          />
           <label for="male">Male</label>
           
-          <input type="radio" id="female" value="Female" v-model="gender" />
+          <input 
+            type="radio" 
+            id="female" 
+            value="Female" 
+            v-model="gender" 
+            aria-label="Select Female as your gender" 
+          />
           <label for="female">Female</label>
           
-          <input type="radio" id="other" value="Other" v-model="gender" />
+          <input 
+            type="radio" 
+            id="other" 
+            value="Other" 
+            v-model="gender" 
+            aria-label="Select Other as your gender" 
+          />
           <label for="other">Other</label>
         </div>
         <span v-if="showErrors && !genderValid" class="error-message">Please select a gender</span>
@@ -51,10 +97,22 @@
       <div class="form-group">
         <label>Are you an Australian Citizen?</label>
         <div class="horizontal-radio">
-          <input type="radio" id="yes" value="Yes" v-model="citizen" />
+          <input 
+            type="radio" 
+            id="yes" 
+            value="Yes" 
+            v-model="citizen" 
+            aria-label="Select Yes if you are an Australian citizen" 
+          />
           <label for="yes">Yes</label>
           
-          <input type="radio" id="no" value="No" v-model="citizen" />
+          <input 
+            type="radio" 
+            id="no" 
+            value="No" 
+            v-model="citizen" 
+            aria-label="Select No if you are not an Australian citizen" 
+          />
           <label for="no">No</label>
         </div>
         <span v-if="showErrors && !citizenValid" class="error-message">Please select citizenship status</span>
@@ -63,7 +121,14 @@
       <!-- Password -->
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" :class="{ 'error': showErrors && !passwordValid }" />
+        <input 
+          type="password" 
+          id="password" 
+          v-model="password" 
+          :class="{ 'error': showErrors && !passwordValid }" 
+          aria-label="Enter your password" 
+          required 
+        />
         <span v-if="showErrors && !passwordValid" class="error-message">
           Password must be at least 8 characters, include an uppercase letter, a number, and a special character
         </span>
@@ -72,19 +137,25 @@
       <!-- Confirm Password -->
       <div class="form-group">
         <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" v-model="confirmPassword" :class="{ 'error': showErrors && !confirmPasswordValid }" />
+        <input 
+          type="password" 
+          id="confirmPassword" 
+          v-model="confirmPassword" 
+          :class="{ 'error': showErrors && !confirmPasswordValid }" 
+          aria-label="Re-enter your password to confirm" 
+          required 
+        />
         <span v-if="showErrors && !confirmPasswordValid" class="error-message">Passwords do not match</span>
       </div>
 
       <!-- Buttons -->
       <div class="form-actions">
-        <button type="submit">Submit</button>
-        <button type="button" @click="clearForm">Clear</button>
+        <button type="submit" aria-label="Submit the registration form">Submit</button>
+        <button type="button" @click="clearForm" aria-label="Clear all form inputs">Clear</button>
       </div>
     </form>
   </div>
 </template>
-
 
 <!-- JavaScript for RegistrationPage -->
 
@@ -228,8 +299,8 @@ const clearForm = () => {
 
 
 
-<!-- CSS for RegistrationPage -->
 <style scoped>
+/* General Form Styling */
 .registration-form {
   max-width: 600px;
   margin: 50px auto;
@@ -237,67 +308,134 @@ const clearForm = () => {
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
+/* Labels */
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-weight: bold;
+  font-size: 1rem;
+  color: #333;
 }
 
+/* Input Fields */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
 input.error {
   border-color: red;
+  background-color: #ffe6e6;
 }
 
+/* Error Messages */
 .error-message {
   color: red;
   font-size: 0.9em;
+  margin-top: 5px;
+  line-height: 1.4;
 }
 
+/* Horizontal Radio Group */
 .horizontal-radio {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
 }
 
+.horizontal-radio input {
+  margin-right: 5px;
+}
+
+.horizontal-radio label {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Form Actions */
 .form-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 button {
-  padding: 10px 15px;
-  background-color: #4caf50;
-  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
 }
 
 button[type="button"] {
   background-color: #f44336;
+  color: white;
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+button:focus {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Accessibility: Focused States */
+input:focus,
+button:focus {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .registration-form {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 </style>

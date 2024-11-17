@@ -5,28 +5,62 @@
     <!-- Registration Link at the Top -->
     <p>
       Don't have an account?
-      <router-link to="/register">Register here</router-link>
+      <router-link to="/register" aria-label="Register here">Register here</router-link>
     </p>
 
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" aria-labelledby="login-form-title">
       <!-- Email or Username -->
       <div class="form-group">
-        <label for="emailOrUsername">Email:</label>
-        <input type="text" id="emailOrUsername" v-model="emailOrUsername" :class="{ 'error': showErrors && !emailOrUsernameValid }" />
-        <span v-if="showErrors && !emailOrUsernameValid" class="error-message">Please enter a valid email or username</span>
+        <label for="emailOrUsername">Email or Username:</label>
+        <input
+          type="text"
+          id="emailOrUsername"
+          v-model="emailOrUsername"
+          :class="{ 'error': showErrors && !emailOrUsernameValid }"
+          aria-invalid="true"
+          aria-required="true"
+          placeholder="Enter your email or username"
+        />
+        <span
+          v-if="showErrors && !emailOrUsernameValid"
+          class="error-message"
+          role="alert"
+        >
+          Please enter a valid email or username
+        </span>
       </div>
 
       <!-- Password -->
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" :class="{ 'error': showErrors && !passwordValid }" />
-        <span v-if="showErrors && !passwordValid" class="error-message">Password is required</span>
+        <input
+          type="password"
+          id="password"
+          v-model="password"
+          :class="{ 'error': showErrors && !passwordValid }"
+          aria-invalid="true"
+          aria-required="true"
+          placeholder="Enter your password"
+        />
+        <span
+          v-if="showErrors && !passwordValid"
+          class="error-message"
+          role="alert"
+        >
+          Password is required
+        </span>
       </div>
 
       <!-- Buttons -->
       <div class="form-actions">
-        <button type="submit">Login</button>
-        <button type="button" @click="clearForm">Clear</button>
+        <button type="submit" aria-label="Login to your account">Login</button>
+        <button
+          type="button"
+          @click="clearForm"
+          aria-label="Clear the form"
+        >
+          Clear
+        </button>
       </div>
     </form>
   </div>
@@ -136,6 +170,7 @@ const clearForm = () => {
 </script>
 
 <!-- CSS code for Login Page -->
+
 <style scoped>
 .login-form {
   max-width: 600px;
@@ -144,42 +179,53 @@ const clearForm = () => {
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
 }
 
 p {
   text-align: center;
   margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 16px;
 }
 
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: 2px solid #4caf50;
+  box-shadow: 0 0 5px #4caf50;
 }
 
 input.error {
-  border-color: red;
+  border-color: #f44336;
 }
 
 .error-message {
-  color: red;
+  color: #f44336;
   font-size: 0.9em;
 }
 
@@ -190,12 +236,14 @@ input.error {
 }
 
 button {
-  padding: 10px 15px;
+  padding: 12px 20px;
+  font-size: 16px;
   background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button[type="button"] {
@@ -203,7 +251,11 @@ button[type="button"] {
 }
 
 button:hover {
-  opacity: 0.8;
+  background-color: #45a049;
+}
+
+button[type="button"]:hover {
+  background-color: #e53935;
 }
 
 a {

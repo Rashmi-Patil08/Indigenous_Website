@@ -10,6 +10,8 @@ import AdminPage from '../views/AdminPage.vue';
 import ErrorPage from '../views/ErrorPage.vue';
 import InteractiveTable from '../views/InteractiveTablePage.vue';
 import GeoMap from '../views/GeoLocationPage.vue';
+import ExportTool from '../views/ExportPage.vue';
+
 
 // import Logout from '../views/Logout.vue'; 
 
@@ -81,6 +83,12 @@ const routes = [
     name: "GeoLocation",
     component: GeoMap,
   },
+
+  {
+    path: "/export-data",
+    name: "ExportTool",
+    component: ExportTool
+  },
   
 
 
@@ -114,3 +122,4 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
+
