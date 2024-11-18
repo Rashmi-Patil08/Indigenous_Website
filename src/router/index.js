@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import RegistrationPage from '../views/RegistrationPage.vue';
-import SupportServicePage from '../views/SupportServicePage.vue';
 import RatingPage from '../views/RatingPage.vue';
 import DataDisplay from '../views/DataDisplay.vue';
 import UserPage from '../views/UserPage.vue';
@@ -11,6 +10,7 @@ import ErrorPage from '../views/ErrorPage.vue';
 import InteractiveTable from '../views/InteractiveTablePage.vue';
 import GeoMap from '../views/GeoLocationPage.vue';
 import ExportTool from '../views/ExportPage.vue';
+import CalendarView from '../views/BookingPage.vue';
 
 
 // import Logout from '../views/Logout.vue'; 
@@ -31,12 +31,7 @@ const routes = [
     name: 'Register',
     component: RegistrationPage
   },
-  {
-    path: '/support-service',
-    name: 'SupportService',
-    component: SupportServicePage,
-    meta: { requiresAuth: true },  // Only logged-in users can access this page
-  },
+
   {
     path: '/rating',
     name: 'Rating',
@@ -88,6 +83,11 @@ const routes = [
     path: "/export-data",
     name: "ExportTool",
     component: ExportTool
+  },
+  {
+    path: "/booking",
+    name: "CalendarView",
+    component: CalendarView
   },
   
 

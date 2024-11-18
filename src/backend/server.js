@@ -3,12 +3,18 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const multer = require('multer'); // Import multer to handle file uploads
 const sendEmailWithAttachment = require('./emailService');
+const apiRoutes = require('../router/apiRoutes'); // Import the new API routes
 
 const app = express();
 const PORT = 3000;
 
 app.use(cors()); // Allow CORS for all origins
 app.use(bodyParser.json());
+
+// Route: API Routes for users
+app.use('/api', apiRoutes);
+
+
 const upload = multer({ dest: 'uploads/' }); // Define file upload destination
 
 app.post('/send-email', upload.single('filePath'), async (req, res) => {
@@ -41,3 +47,5 @@ app.post('/send-email', upload.single('filePath'), async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+

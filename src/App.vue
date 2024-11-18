@@ -2,24 +2,28 @@
   <div>
     <nav>
       <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link> 
-      <router-link to="/register">Register</router-link> 
-      <router-link to="/support-service">Support Service</router-link>
+
+      <!-- Show Login and Register links only when the user is not logged in -->
+      <router-link v-if="!isLoggedIn" to="/login">Login</router-link> 
+      <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
+      
+
+      <!-- Other navigation links -->
       <router-link to="/rating">Rating</router-link>
       <router-link to="/datadisplay">Data Display</router-link>
       <router-link to="/interactive-table">Interactive Table</router-link>
       <router-link to="/geo-location">Geo Location</router-link>
       <router-link to="/export-data">Export Data</router-link>
 
-      <!-- Redirect to home and log out -->
+      <!-- Show Logout link only when the user is logged in -->
+      <router-link v-if="isLoggedIn" to="/booking">Booking</router-link> 
       <router-link v-if="isLoggedIn" to="/" @click="logout">Logout</router-link>
-
-      <!-- <a href="#">Testing</a> -->
       
     </nav>
     <router-view></router-view>
   </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -80,7 +84,7 @@ nav {
 }
 
 nav a {
-  margin: 0 15px; /* Horizontal spacing between links */
+  margin: 0 5px; /* Horizontal spacing between links */
   color: black; /* Text color */
   text-decoration: none; 
   font-weight: bold; 
