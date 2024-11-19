@@ -1,0 +1,431 @@
+[debug] [2024-11-19T12:12:59.191Z] ----------------------------------------------------------------------
+[debug] [2024-11-19T12:12:59.193Z] Command:       C:\Users\rmp89\AppData\Local\fnm_multishells\13260_1732018105022\node.exe C:\Users\rmp89\AppData\Local\fnm_multishells\13260_1732018105022\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-19T12:12:59.193Z] CLI Version:   13.25.0
+[debug] [2024-11-19T12:12:59.193Z] Platform:      win32
+[debug] [2024-11-19T12:12:59.193Z] Node Version:  v20.16.0
+[debug] [2024-11-19T12:12:59.194Z] Time:          Tue Nov 19 2024 23:12:59 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2024-11-19T12:12:59.194Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-19T12:12:59.265Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-19T12:12:59.266Z] > authorizing via signed-in user (rmp.8994@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-19T12:12:59.271Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:12:59.271Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:12:59.273Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 [none]
+[debug] [2024-11-19T12:13:00.132Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 200
+[debug] [2024-11-19T12:13:00.132Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 {"projectId":"indigenous-website-aee73","projectNumber":"978573056013","displayName":"Indigenous-Communities-Website","name":"projects/indigenous-website-aee73","resources":{"hostingSite":"indigenous-website-aee73"},"state":"ACTIVE","etag":"1_794b9d66-7efd-4511-89f2-b267511ef4e2"}
+[debug] [2024-11-19T12:13:00.141Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:13:00.141Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:13:00.142Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-11-19T12:13:00.145Z] [hub] writing locator at C:\Users\rmp89\AppData\Local\Temp\hub-indigenous-website-aee73.json
+[debug] [2024-11-19T12:13:00.150Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-19T12:13:00.155Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:13:00.156Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:13:00.156Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:13:00.156Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-19T12:13:00.158Z] defaultcredentials: writing to file C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json
+[debug] [2024-11-19T12:13:00.159Z] Setting GAC to C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\rmp89\\AppData\\Roaming\\firebase\\rmp_8994_gmail.com_application_default_credentials.json"}}
+[debug] [2024-11-19T12:13:00.160Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:00.160Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:00.160Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig [none]
+[debug] [2024-11-19T12:13:00.602Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig 200
+[debug] [2024-11-19T12:13:00.602Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig {"projectId":"indigenous-website-aee73","storageBucket":"indigenous-website-aee73.firebasestorage.app"}
+[debug] [2024-11-19T12:13:00.622Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:00.622Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:00.622Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites 
+[debug] [2024-11-19T12:13:02.101Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites 200
+[debug] [2024-11-19T12:13:02.101Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites {"sites":[{"name":"projects/indigenous-website-aee73/sites/indigenous-website-aee73","defaultUrl":"https://indigenous-website-aee73.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-19T12:13:02.102Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:02.102Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:02.102Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config [none]
+[debug] [2024-11-19T12:13:02.880Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config 200
+[debug] [2024-11-19T12:13:02.880Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config {"projectId":"indigenous-website-aee73","storageBucket":"indigenous-website-aee73.firebasestorage.app","apiKey":"AIzaSyCk9hHK-9tlalAZPEXAH8ixiwmZMxArKpg","authDomain":"indigenous-website-aee73.firebaseapp.com","messagingSenderId":"978573056013"}
+[debug] [2024-11-19T12:13:02.891Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:02.891Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:13:02.891Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 [none]
+[debug] [2024-11-19T12:13:03.344Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 200
+[debug] [2024-11-19T12:13:03.344Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 {"projectId":"indigenous-website-aee73","projectNumber":"978573056013","displayName":"Indigenous-Communities-Website","name":"projects/indigenous-website-aee73","resources":{"hostingSite":"indigenous-website-aee73"},"state":"ACTIVE","etag":"1_794b9d66-7efd-4511-89f2-b267511ef4e2"}
+[info] i  hosting[indigenous-website-aee73]: Serving hosting files from: dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist\u001b[22m"}}
+[info] +  hosting[indigenous-website-aee73]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2024-11-19T12:13:03.367Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-19T12:13:03.368Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-11-19T12:13:03.368Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\rmp89\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\rmp89\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-11-19T12:13:03.488Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-11-19T12:13:03.488Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[debug] [2024-11-19T12:13:03.588Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-19T12:13:03.596Z] Validating nodejs source
+[debug] [2024-11-19T12:13:04.526Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-19T12:13:04.527Z] Building nodejs source
+[debug] [2024-11-19T12:13:04.527Z] Failed to find version of module node: reached end of search path D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[debug] [2024-11-19T12:13:04.529Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-19T12:13:04.541Z] Found firebase-functions binary at 'D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8205
+
+[debug] [2024-11-19T12:13:04.997Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"helloWorld"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-19T12:13:10.034Z] defaultcredentials: writing to file C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json
+[debug] [2024-11-19T12:13:10.035Z] Setting GAC to C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\rmp89\\AppData\\Roaming\\firebase\\rmp_8994_gmail.com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: helloWorld. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld."}}
+[info] +  functions[us-central1-helloWorld]: http function initialized (http://127.0.0.1:5001/indigenous-website-aee73/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/indigenous-website-aee73/us-central1/helloWorld)."}}
+[debug] [2024-11-19T12:13:10.041Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5000 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-11-19T12:14:26.924Z] [work-queue] {"queuedWork":["/indigenous-website-aee73/us-central1/helloWorld-2024-11-19T12:14:26.924Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-19T12:14:26.925Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/indigenous-website-aee73/us-central1/helloWorld-2024-11-19T12:14:26.924Z"],"workRunningCount":1}
+[debug] [2024-11-19T12:14:26.926Z] Accepted request GET /indigenous-website-aee73/us-central1/helloWorld --> us-central1-helloWorld
+[debug] [2024-11-19T12:14:26.927Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-19T12:14:26.928Z] [functions] Got req.url=/indigenous-website-aee73/us-central1/helloWorld, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/indigenous-website-aee73/us-central1/helloWorld, mapping to path=/"}}
+[debug] [2024-11-19T12:14:26.951Z] [worker-pool] addWorker(us-central1-helloWorld) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-helloWorld)"}}
+[debug] [2024-11-19T12:14:26.951Z] [worker-pool] Adding worker with key us-central1-helloWorld, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-helloWorld, total=1"}}
+[debug] [2024-11-19T12:14:28.205Z] [runtime-status] [27512] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-19T12:14:28.205Z] [runtime-status] [27512] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:14:28.206Z] [runtime-status] [27512] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-19T12:14:28.207Z] [runtime-status] [27512] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:14:28.451Z] [runtime-status] [27512] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-19T12:14:28.451Z] [runtime-status] [27512] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-19T12:14:28.451Z] [runtime-status] [27512] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:14:28.455Z] [runtime-status] [27512] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-19T12:14:28.456Z] [runtime-status] [27512] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:14:28.457Z] [runtime-status] [27512] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-19T12:14:28.463Z] [runtime-status] [27512] Functions runtime initialized. {"cwd":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions","node_version":"20.16.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Functions runtime initialized. {\"cwd\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\",\"node_version\":\"20.16.0\"}"}}
+[debug] [2024-11-19T12:14:28.464Z] [runtime-status] [27512] Listening to port: \\?\pipe\fire_emu_365105aa7e0e5bcd {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [27512] Listening to port: \\\\?\\pipe\\fire_emu_365105aa7e0e5bcd"}}
+[debug] [2024-11-19T12:14:28.498Z] [worker-us-central1-helloWorld-eb3d359d-06ff-4229-b4a8-88980aa4a994]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[worker-us-central1-helloWorld-eb3d359d-06ff-4229-b4a8-88980aa4a994]: IDLE"}}
+[debug] [2024-11-19T12:14:28.498Z] [worker-pool] submitRequest(triggerId=us-central1-helloWorld) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-helloWorld)"}}
+[info] i  functions: Beginning execution of "us-central1-helloWorld" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Beginning execution of \"us-central1-helloWorld\""}}
+[debug] [2024-11-19T12:14:28.500Z] [worker-us-central1-helloWorld-eb3d359d-06ff-4229-b4a8-88980aa4a994]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[worker-us-central1-helloWorld-eb3d359d-06ff-4229-b4a8-88980aa4a994]: BUSY"}}
+[debug] [2024-11-19T12:14:28.505Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-helloWorld" in 5.7014ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finished \"us-central1-helloWorld\" in 5.7014ms"}}
+[debug] [2024-11-19T12:14:28.506Z] [worker-us-central1-helloWorld-eb3d359d-06ff-4229-b4a8-88980aa4a994]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[worker-us-central1-helloWorld-eb3d359d-06ff-4229-b4a8-88980aa4a994]: IDLE"}}
+[debug] [2024-11-19T12:14:28.506Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-19T12:14:28.506Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-19T12:14:28.507Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-19T12:24:49.016Z] ----------------------------------------------------------------------
+[debug] [2024-11-19T12:24:49.019Z] Command:       C:\Users\rmp89\AppData\Local\fnm_multishells\26688_1732018672229\node.exe C:\Users\rmp89\AppData\Local\fnm_multishells\26688_1732018672229\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-19T12:24:49.019Z] CLI Version:   13.25.0
+[debug] [2024-11-19T12:24:49.019Z] Platform:      win32
+[debug] [2024-11-19T12:24:49.019Z] Node Version:  v20.16.0
+[debug] [2024-11-19T12:24:49.019Z] Time:          Tue Nov 19 2024 23:24:49 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2024-11-19T12:24:49.019Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-19T12:24:49.092Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-19T12:24:49.092Z] > authorizing via signed-in user (rmp.8994@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-19T12:24:49.097Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:49.098Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:49.099Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 [none]
+[debug] [2024-11-19T12:24:49.798Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 200
+[debug] [2024-11-19T12:24:49.799Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 {"projectId":"indigenous-website-aee73","projectNumber":"978573056013","displayName":"Indigenous-Communities-Website","name":"projects/indigenous-website-aee73","resources":{"hostingSite":"indigenous-website-aee73"},"state":"ACTIVE","etag":"1_794b9d66-7efd-4511-89f2-b267511ef4e2"}
+[debug] [2024-11-19T12:24:49.806Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:24:49.807Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[debug] [2024-11-19T12:24:49.808Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4001},{"address":"::1","family":"IPv6","port":4001}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project indigenous-website-aee73. This may result in unexpected behavior. 
+[debug] [2024-11-19T12:24:49.812Z] [hub] writing locator at C:\Users\rmp89\AppData\Local\Temp\hub-indigenous-website-aee73.json
+[debug] [2024-11-19T12:24:49.817Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-19T12:24:49.821Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:24:49.821Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:24:49.821Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:24:49.821Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4001},{"address":"::1","family":"IPv6","port":4001}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-19T12:24:49.823Z] defaultcredentials: writing to file C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json
+[debug] [2024-11-19T12:24:49.824Z] Setting GAC to C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\rmp89\\AppData\\Roaming\\firebase\\rmp_8994_gmail.com_application_default_credentials.json"}}
+[debug] [2024-11-19T12:24:49.825Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:49.825Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:49.825Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig [none]
+[debug] [2024-11-19T12:24:50.443Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig 200
+[debug] [2024-11-19T12:24:50.443Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig {"projectId":"indigenous-website-aee73","storageBucket":"indigenous-website-aee73.firebasestorage.app"}
+[debug] [2024-11-19T12:24:50.454Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:50.454Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:50.454Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites 
+[debug] [2024-11-19T12:24:51.895Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites 200
+[debug] [2024-11-19T12:24:51.896Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites {"sites":[{"name":"projects/indigenous-website-aee73/sites/indigenous-website-aee73","defaultUrl":"https://indigenous-website-aee73.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-19T12:24:51.896Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:51.896Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:51.896Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config [none]
+[debug] [2024-11-19T12:24:52.663Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config 200
+[debug] [2024-11-19T12:24:52.664Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config {"projectId":"indigenous-website-aee73","storageBucket":"indigenous-website-aee73.firebasestorage.app","apiKey":"AIzaSyCk9hHK-9tlalAZPEXAH8ixiwmZMxArKpg","authDomain":"indigenous-website-aee73.firebaseapp.com","messagingSenderId":"978573056013"}
+[debug] [2024-11-19T12:24:52.668Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:52.668Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:24:52.668Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 [none]
+[debug] [2024-11-19T12:24:53.068Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 200
+[debug] [2024-11-19T12:24:53.069Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 {"projectId":"indigenous-website-aee73","projectNumber":"978573056013","displayName":"Indigenous-Communities-Website","name":"projects/indigenous-website-aee73","resources":{"hostingSite":"indigenous-website-aee73"},"state":"ACTIVE","etag":"1_794b9d66-7efd-4511-89f2-b267511ef4e2"}
+[info] i  hosting[indigenous-website-aee73]: Serving hosting files from: dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist\u001b[22m"}}
+[info] +  hosting[indigenous-website-aee73]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2024-11-19T12:24:53.084Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-19T12:24:53.084Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-11-19T12:24:53.084Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\rmp89\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\rmp89\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-11-19T12:24:53.213Z] Web / API server started at 127.0.0.1:4001
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4001\n"}}
+[debug] [2024-11-19T12:24:53.213Z] Web / API server started at ::1:4001
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4001\n"}}
+[debug] [2024-11-19T12:24:53.298Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-19T12:24:53.306Z] Validating nodejs source
+[debug] [2024-11-19T12:24:54.907Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-19T12:24:54.907Z] Building nodejs source
+[debug] [2024-11-19T12:24:54.908Z] Failed to find version of module node: reached end of search path D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[debug] [2024-11-19T12:24:54.910Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-19T12:24:54.921Z] Found firebase-functions binary at 'D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8632
+
+[debug] [2024-11-19T12:24:55.396Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"helloWorld"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-19T12:25:00.436Z] defaultcredentials: writing to file C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json
+[debug] [2024-11-19T12:25:00.437Z] Setting GAC to C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\rmp89\\AppData\\Roaming\\firebase\\rmp_8994_gmail.com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: helloWorld. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld."}}
+[info] +  functions[us-central1-helloWorld]: http function initialized (http://127.0.0.1:5001/indigenous-website-aee73/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/indigenous-website-aee73/us-central1/helloWorld)."}}
+[debug] [2024-11-19T12:25:00.444Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4001/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4001/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5000 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4001/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-11-19T12:25:40.050Z] [work-queue] {"queuedWork":["/indigenous-website-aee73/us-central1/helloWorld-2024-11-19T12:25:40.050Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-19T12:25:40.050Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/indigenous-website-aee73/us-central1/helloWorld-2024-11-19T12:25:40.050Z"],"workRunningCount":1}
+[debug] [2024-11-19T12:25:40.051Z] Accepted request GET /indigenous-website-aee73/us-central1/helloWorld --> us-central1-helloWorld
+[debug] [2024-11-19T12:25:40.051Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-19T12:25:40.052Z] [functions] Got req.url=/indigenous-website-aee73/us-central1/helloWorld, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/indigenous-website-aee73/us-central1/helloWorld, mapping to path=/"}}
+[debug] [2024-11-19T12:25:40.067Z] [worker-pool] addWorker(us-central1-helloWorld) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-helloWorld)"}}
+[debug] [2024-11-19T12:25:40.068Z] [worker-pool] Adding worker with key us-central1-helloWorld, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-helloWorld, total=1"}}
+[debug] [2024-11-19T12:25:41.441Z] [runtime-status] [31896] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-19T12:25:41.442Z] [runtime-status] [31896] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:25:41.442Z] [runtime-status] [31896] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-19T12:25:41.443Z] [runtime-status] [31896] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:25:41.695Z] [runtime-status] [31896] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-19T12:25:41.695Z] [runtime-status] [31896] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-19T12:25:41.696Z] [runtime-status] [31896] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:25:41.702Z] [runtime-status] [31896] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-19T12:25:41.705Z] [runtime-status] [31896] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-19T12:25:41.706Z] [runtime-status] [31896] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-19T12:25:41.712Z] [runtime-status] [31896] Functions runtime initialized. {"cwd":"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions","node_version":"20.16.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Functions runtime initialized. {\"cwd\":\"D:\\\\Masters of IT Monash\\\\3rd Semister july intake2024\\\\FIT5032 Internet Applications Development\\\\Assignments\\\\Assignment_3\\\\indigenous-health-app\\\\functions\",\"node_version\":\"20.16.0\"}"}}
+[debug] [2024-11-19T12:25:41.713Z] [runtime-status] [31896] Listening to port: \\?\pipe\fire_emu_50ded756c69e4aa7 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[runtime-status] [31896] Listening to port: \\\\?\\pipe\\fire_emu_50ded756c69e4aa7"}}
+[debug] [2024-11-19T12:25:41.818Z] [worker-us-central1-helloWorld-3008e634-5ee7-4d0b-a487-3feaf6c53133]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[worker-us-central1-helloWorld-3008e634-5ee7-4d0b-a487-3feaf6c53133]: IDLE"}}
+[debug] [2024-11-19T12:25:41.819Z] [worker-pool] submitRequest(triggerId=us-central1-helloWorld) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-helloWorld)"}}
+[info] i  functions: Beginning execution of "us-central1-helloWorld" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Beginning execution of \"us-central1-helloWorld\""}}
+[debug] [2024-11-19T12:25:41.820Z] [worker-us-central1-helloWorld-3008e634-5ee7-4d0b-a487-3feaf6c53133]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[worker-us-central1-helloWorld-3008e634-5ee7-4d0b-a487-3feaf6c53133]: BUSY"}}
+[debug] [2024-11-19T12:25:41.824Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-helloWorld" in 5.0098ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finished \"us-central1-helloWorld\" in 5.0098ms"}}
+[debug] [2024-11-19T12:25:41.825Z] [worker-us-central1-helloWorld-3008e634-5ee7-4d0b-a487-3feaf6c53133]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"[worker-us-central1-helloWorld-3008e634-5ee7-4d0b-a487-3feaf6c53133]: IDLE"}}
+[debug] [2024-11-19T12:25:41.825Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-19T12:25:41.826Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-helloWorld"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-19T12:25:41.826Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-19T12:27:43.634Z] ----------------------------------------------------------------------
+[debug] [2024-11-19T12:27:43.636Z] Command:       C:\Users\rmp89\AppData\Local\fnm_multishells\19564_1732019212115\node.exe C:\Users\rmp89\AppData\Local\fnm_multishells\19564_1732019212115\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-19T12:27:43.636Z] CLI Version:   13.25.0
+[debug] [2024-11-19T12:27:43.636Z] Platform:      win32
+[debug] [2024-11-19T12:27:43.636Z] Node Version:  v20.16.0
+[debug] [2024-11-19T12:27:43.637Z] Time:          Tue Nov 19 2024 23:27:43 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2024-11-19T12:27:43.637Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-19T12:27:43.703Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-19T12:27:43.703Z] > authorizing via signed-in user (rmp.8994@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-19T12:27:43.707Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:43.708Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:43.709Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 [none]
+[debug] [2024-11-19T12:27:44.334Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 200
+[debug] [2024-11-19T12:27:44.334Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 {"projectId":"indigenous-website-aee73","projectNumber":"978573056013","displayName":"Indigenous-Communities-Website","name":"projects/indigenous-website-aee73","resources":{"hostingSite":"indigenous-website-aee73"},"state":"ACTIVE","etag":"1_794b9d66-7efd-4511-89f2-b267511ef4e2"}
+[debug] [2024-11-19T12:27:44.342Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:27:44.342Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4002 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4002 instead."}}
+[debug] [2024-11-19T12:27:44.344Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4002},{"address":"::1","family":"IPv6","port":4002}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project indigenous-website-aee73. This may result in unexpected behavior. 
+[debug] [2024-11-19T12:27:44.347Z] [hub] writing locator at C:\Users\rmp89\AppData\Local\Temp\hub-indigenous-website-aee73.json
+[debug] [2024-11-19T12:27:44.352Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-19T12:27:44.356Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:27:44.356Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:27:44.356Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-19T12:27:44.356Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4002},{"address":"::1","family":"IPv6","port":4002}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-19T12:27:44.358Z] defaultcredentials: writing to file C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json
+[debug] [2024-11-19T12:27:44.359Z] Setting GAC to C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\rmp89\\AppData\\Roaming\\firebase\\rmp_8994_gmail.com_application_default_credentials.json"}}
+[debug] [2024-11-19T12:27:44.359Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:44.360Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:44.360Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig [none]
+[debug] [2024-11-19T12:27:44.781Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig 200
+[debug] [2024-11-19T12:27:44.781Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/adminSdkConfig {"projectId":"indigenous-website-aee73","storageBucket":"indigenous-website-aee73.firebasestorage.app"}
+[debug] [2024-11-19T12:27:44.800Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:44.800Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:44.800Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites 
+[debug] [2024-11-19T12:27:46.125Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites 200
+[debug] [2024-11-19T12:27:46.125Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/indigenous-website-aee73/sites {"sites":[{"name":"projects/indigenous-website-aee73/sites/indigenous-website-aee73","defaultUrl":"https://indigenous-website-aee73.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-19T12:27:46.125Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:46.125Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:46.125Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config [none]
+[debug] [2024-11-19T12:27:46.801Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config 200
+[debug] [2024-11-19T12:27:46.801Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73/webApps/-/config {"projectId":"indigenous-website-aee73","storageBucket":"indigenous-website-aee73.firebasestorage.app","apiKey":"AIzaSyCk9hHK-9tlalAZPEXAH8ixiwmZMxArKpg","authDomain":"indigenous-website-aee73.firebaseapp.com","messagingSenderId":"978573056013"}
+[debug] [2024-11-19T12:27:46.805Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:46.805Z] Checked if tokens are valid: true, expires at: 1732020827709
+[debug] [2024-11-19T12:27:46.805Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 [none]
+[debug] [2024-11-19T12:27:47.205Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 200
+[debug] [2024-11-19T12:27:47.205Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/indigenous-website-aee73 {"projectId":"indigenous-website-aee73","projectNumber":"978573056013","displayName":"Indigenous-Communities-Website","name":"projects/indigenous-website-aee73","resources":{"hostingSite":"indigenous-website-aee73"},"state":"ACTIVE","etag":"1_794b9d66-7efd-4511-89f2-b267511ef4e2"}
+[info] i  hosting[indigenous-website-aee73]: Serving hosting files from: dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist\u001b[22m"}}
+[info] +  hosting[indigenous-website-aee73]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2024-11-19T12:27:47.218Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-19T12:27:47.218Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-11-19T12:27:47.218Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\rmp89\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\rmp89\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-11-19T12:27:47.334Z] Web / API server started at 127.0.0.1:4002
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4002\n"}}
+[debug] [2024-11-19T12:27:47.334Z] Web / API server started at ::1:4002
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4002\n"}}
+[debug] [2024-11-19T12:27:47.442Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Masters of IT Monash\\3rd Semister july intake2024\\FIT5032 Internet Applications Development\\Assignments\\Assignment_3\\indigenous-health-app\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-19T12:27:47.449Z] Validating nodejs source
+[debug] [2024-11-19T12:27:48.277Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-19T12:27:48.277Z] Building nodejs source
+[debug] [2024-11-19T12:27:48.277Z] Failed to find version of module node: reached end of search path D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[debug] [2024-11-19T12:27:48.280Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-19T12:27:48.290Z] Found firebase-functions binary at 'D:\Masters of IT Monash\3rd Semister july intake2024\FIT5032 Internet Applications Development\Assignments\Assignment_3\indigenous-health-app\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8710
+
+[debug] [2024-11-19T12:27:48.728Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"helloWorld"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-19T12:27:53.752Z] defaultcredentials: writing to file C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json
+[debug] [2024-11-19T12:27:53.753Z] Setting GAC to C:\Users\rmp89\AppData\Roaming\firebase\rmp_8994_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\rmp89\\AppData\\Roaming\\firebase\\rmp_8994_gmail.com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: helloWorld. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld."}}
+[info] +  functions[us-central1-helloWorld]: http function initialized (http://127.0.0.1:5001/indigenous-website-aee73/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/indigenous-website-aee73/us-central1/helloWorld)."}}
+[debug] [2024-11-19T12:27:53.758Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4002/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4002/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5000 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4002/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
