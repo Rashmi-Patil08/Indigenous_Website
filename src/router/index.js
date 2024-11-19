@@ -11,7 +11,7 @@ import InteractiveTable from '../views/InteractiveTablePage.vue';
 import GeoMap from '../views/GeoLocationPage.vue';
 import ExportTool from '../views/ExportPage.vue';
 import CalendarView from '../views/BookingPage.vue';
-
+import ChartsPage from '../views/ChartsPage.vue'; // Import ChartsPage
 
 // import Logout from '../views/Logout.vue'; 
 
@@ -88,6 +88,13 @@ const routes = [
     path: "/booking",
     name: "CalendarView",
     component: CalendarView
+  },
+
+  {
+    path: "/charts",
+    name: "ChartsPage",
+    component: ChartsPage,
+    meta: { requiresAuth: true }, // Optional: Only authenticated users can access charts
   },
   
 
