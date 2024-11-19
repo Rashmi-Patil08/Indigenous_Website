@@ -13,7 +13,9 @@
       <router-link to="/datadisplay">Data Display</router-link>
       <router-link to="/interactive-table">Interactive Table</router-link>
       <router-link to="/geo-location">Geo Location</router-link>
+      <router-link to="/charts">Chart Page</router-link>
       <router-link to="/export-data">Export Data</router-link>
+
 
       <!-- Show Logout link only when the user is logged in -->
       <router-link v-if="isLoggedIn" to="/booking">Booking</router-link> 
